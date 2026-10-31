@@ -941,3 +941,29 @@ body { overflow-x: clip; }
 .hub-cap .c-a i { background: var(--offwhite); }
 .no-sp #hub .hub { --hp: 1; }
 @media (max-width: 760px) { .hub-cap span { font-size: 11px; } }
+
+/* карточка «Инструменты и сайты»: читаемая панель руководителя */
+.db { display: grid; grid-template-columns: 104px 1fr; gap: 10px; height: clamp(230px, 22vw, 320px); font-size: 12px; }
+.db-side { display: flex; flex-direction: column; gap: 4px; padding: 8px; border-radius: 10px; background: var(--g-surface); }
+.db-side span { padding: 7px 9px; border-radius: 8px; color: var(--g-muted); font-weight: 600; }
+.db-side span.on { background: var(--offwhite); color: var(--graphite); }
+.db-main { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.db-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.db-kpis div { position: relative; padding: 9px 11px; border-radius: 10px; background: var(--g-surface); }
+.db-kpis small, .db-card small { display: block; color: var(--g-muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.db-kpis b { display: block; font-size: clamp(16px, 1.4vw, 22px); line-height: 1.15; }
+.db-kpis em { position: absolute; right: 9px; bottom: 10px; font-style: normal; font-size: 10.5px; font-weight: 700; color: #4CD07D; }
+.db-kpis .on { background: var(--blue); } .db-kpis .on small { color: rgba(245,244,240,.85); }
+.db-grid { flex: 1; display: grid; grid-template-columns: 1fr 1.2fr; gap: 8px; min-height: 0; }
+.db-card { display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 10px; background: var(--g-surface); min-height: 0; overflow: hidden; }
+.db-bars { flex: 1; display: flex; align-items: flex-end; gap: 5px; min-height: 40px; }
+.db-bars i { flex: 1; height: var(--h); border-radius: 4px 4px 2px 2px; background: #3A3F45; transform-origin: bottom; animation: barGrow 2.4s ease-in-out infinite alternate; }
+.db-bars i.b { background: var(--blue); }
+.db-bars i:nth-child(2n) { animation-delay: .3s; } .db-bars i:nth-child(3n) { animation-delay: .6s; }
+@keyframes barGrow { from { transform: scaleY(.75); } to { transform: none; } }
+.db-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 8px; background: #23272B; }
+.db-row b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.db-row em { flex: none; font-style: normal; font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 6px; background: var(--blue); }
+.db-row em.g { background: var(--g-line); }
+.db-row.new { box-shadow: inset 0 0 0 2px var(--blue); animation: rowIn 4s ease infinite; }
+@media (max-width: 760px) { .db { grid-template-columns: 1fr; height: auto; } .db-side { flex-direction: row; overflow: hidden; } .db-grid { grid-template-columns: 1fr; } }
