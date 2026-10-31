@@ -926,3 +926,18 @@ body { overflow-x: clip; }
 .nav-pill::after { content: ''; position: absolute; left: 50%; bottom: -1px; width: 14px; height: 2px; margin-left: -7px; border-radius: 2px; background: var(--blue); }
 .top-prog { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--blue); transform: scaleX(var(--sp, 0)); transform-origin: left; }
 @media (max-width: 900px) { .top .brand span { display: none; } }
+
+/* «Одна система»: при скролле хаос из ручных связей собирается в один узел */
+#hub .hub { position: relative; --hp: 1; }
+#hubChaos, #hubChaosTags { opacity: clamp(0, 1 - var(--hp) * 1.7, 1); }
+#hubOrder > :not([font-size]) { opacity: clamp(0, (var(--hp) - .35) * 2.4, 1); }
+#hubPaths path { stroke-dasharray: 1; stroke-dashoffset: calc(1 - clamp(0, (var(--hp) - .3) * 1.8, 1)); }
+.hub-cap { position: absolute; left: 50%; top: clamp(10px, 1.2vw, 18px); transform: translateX(-50%); display: grid; justify-items: center; white-space: nowrap; }
+.hub-cap span { grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; }
+.hub-cap i { width: 8px; height: 8px; border-radius: 3px; }
+.hub-cap .c-m { background: #2C3035; color: var(--offwhite); opacity: clamp(0, 1 - var(--hp) * 1.7, 1); }
+.hub-cap .c-m i { background: var(--g-muted); }
+.hub-cap .c-a { background: var(--blue); color: var(--offwhite); opacity: clamp(0, (var(--hp) - .5) * 2.5, 1); }
+.hub-cap .c-a i { background: var(--offwhite); }
+.no-sp #hub .hub { --hp: 1; }
+@media (max-width: 760px) { .hub-cap span { font-size: 11px; } }

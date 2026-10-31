@@ -298,6 +298,11 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   if (hub) { const li = [...hub.children]; hub.classList.add('sp');
     jobs.push(() => { const p = prog(hub, 0.9, 0.5); li.forEach((el, k) => el.classList.toggle('lit', p > k / li.length + 0.05)); hub.style.setProperty('--p', p); }); }
 
+  // «Одна система»: хаос ручных связей → один узел
+  const hubBox = document.querySelector('#hub .hub');
+  if (hubBox) { document.querySelectorAll('#hubPaths path').forEach((p) => p.setAttribute('pathLength', 1));
+    jobs.push(() => hubBox.style.setProperty('--hp', prog(hubBox, 0.75, 0.55).toFixed(3))); }
+
   // кейс: данные идут сверху вниз — Директ → скрипт → таблицы
   const pipe = $('#pipe');
   if (pipe) { const parts = [...pipe.children]; pipe.classList.add('sp');
