@@ -102,7 +102,7 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   const set = (on) => {
     t.classList.toggle('on', on); t.setAttribute('aria-pressed', on);
     $('#heroTogLbl').textContent = on ? 'После запуска' : 'Сейчас: рутина за день';
-    $('#heroTogState').textContent = on ? 'свободны для работы с клиентами' : 'уходят на ручную работу';
+    $('#heroTogState').textContent = on ? 'свободны для клиентов' : 'уходят на рутину';
   };
   t.addEventListener('click', () => set(!t.classList.contains('on')));
   t.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t.click(); } });
@@ -323,4 +323,18 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   const run = () => { ticking = false; jobs.forEach((f) => f()); };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
   addEventListener('resize', run); run();
+})();
+
+// шапка: уезжает вверх при прокрутке вниз, возвращается при прокрутке вверх
+(() => {
+  const top = document.querySelector('.top'); if (!top) return;
+  let last = scrollY;
+  const update = () => {
+    const y = scrollY, d = y - last;
+    if (y < 80) top.classList.remove('hide');
+    else if (d > 6) top.classList.add('hide');
+    else if (d < -6) top.classList.remove('hide');
+    if (Math.abs(d) > 6) last = y;
+  };
+  addEventListener('scroll', update, { passive: true });
 })();

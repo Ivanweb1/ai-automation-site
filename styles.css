@@ -905,3 +905,10 @@ body { overflow-x: clip; }
 .fd { grid-template-columns: 1fr clamp(76px, 7vw, 104px) 1fr; }
 .hero { padding-top: clamp(92px, 7.5vw, 120px); }
 #pains h2 { font-size: clamp(28px, 3.1vw, 56px); padding-right: 12px; }
+
+/* шапка прячется при прокрутке вниз */
+.top { transition: transform .35s ease; }
+.top.hide { transform: translateY(calc(-100% - 20px)); }
+.top:focus-within { transform: none; }
+.hero { padding-top: clamp(84px, 6.8vw, 108px); }
+.t-tog .state { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
