@@ -31,6 +31,10 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
 (() => {
   const inBox = $('#fdIn'), table = $('#fdTable'), node = $('#fdNode'), rail = $('#fdRail'), counter = $('#fdCount');
   const tabsBox = $('#fdTabs'); if (!inBox) return;
+  const bars = $('#fdBars');
+  const H = [42, 64, 38, 80, 56, 90, 48, 72, 60, 100, 52, 84, 66, 94];
+  const bar = (k, isNew) => { const b = document.createElement('i'); b.style.height = H[k % H.length] + '%'; if (isNew) b.className = 'new'; return b; };
+  if (bars) for (let k = 0; k < 24; k++) bars.append(bar(k));
   const tabs = [...tabsBox.children];
   const S = [
     { inL: 'Входящие', outL: 'Учёт заявок', feed: [
@@ -85,6 +89,7 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
       inBox.prepend(msg(feed[(i + 3) % feed.length]));
       while (inBox.children.length > 3) inBox.lastElementChild.remove();
       counter.textContent = ++n; i++; ticks++;
+      if (bars) { bars.append(bar(n + 3, true)); while (bars.children.length > 24) bars.firstElementChild.remove(); }
     }, 700);
   };
   setTimeout(() => { tick(); setInterval(tick, 2400); }, 900);
@@ -95,8 +100,8 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   const t = $('#heroTog'); if (!t) return;
   const set = (on) => {
     t.classList.toggle('on', on); t.setAttribute('aria-pressed', on);
-    $('#heroTogLbl').textContent = on ? 'После запуска' : 'Сейчас';
-    $('#heroTogState').textContent = on ? 'Автоматически' : 'Ручной режим';
+    $('#heroTogLbl').textContent = on ? 'После запуска' : 'Сейчас: рутина за день';
+    $('#heroTogState').textContent = on ? 'свободны для работы с клиентами' : 'уходят на ручную работу';
   };
   t.addEventListener('click', () => set(!t.classList.contains('on')));
   t.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t.click(); } });
@@ -113,6 +118,16 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
     cur = k;
     items.forEach((el, j) => el.classList.toggle('act', j === k));
     stage.innerHTML = document.querySelector(`#scenes [data-k="${k}"]`).innerHTML;
+    // подписи шагов: что приходит → что делают руками
+    const mk = stage.querySelector('.mk[data-steps]');
+    if (mk) {
+      const names = mk.dataset.steps.split('|'); let s = 0;
+      [...mk.children].filter((c) => !c.classList.contains('paste')).forEach((c) => {
+        const col = document.createElement('div'); col.className = 'col';
+        col.innerHTML = `<div class="step-l${s ? ' hand' : ''}"><b>${s + 1}</b>${names[s] || ''}</div>`;
+        c.replaceWith(col); col.append(c); s++;
+      });
+    }
     title.textContent = items[k].querySelector('h3').textContent;
     num.textContent = `0${k + 1} / 06`;
   };

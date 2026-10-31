@@ -42,7 +42,7 @@
   </defs>
 </svg>
 
-<div id="scenes" hidden><div data-k="0"><div class="mk two">
+<div id="scenes" hidden><div data-k="0"><div data-steps="Приходит|Менеджер переписывает руками" class="mk two">
   <div class="win"><div class="tb"><i></i><i></i><i></i><span>Telegram · Заказы</span></div><div class="body chat">
     <div class="bub v"><b class="pl"></b><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>0:42</div>
     <div class="bub shot"><span></span><span></span><span class="s"></span>скриншот заказа</div>
@@ -57,7 +57,7 @@
     <div class="r"><span></span><span></span><span></span></div><div class="r"><span></span><span></span><span></span></div>
   </div></div>
 </div>
-<div class="mk-note"><i></i>Менеджер слушает каждое голосовое и переписывает руками</div></div><div data-k="1"><div class="mk two">
+<div class="mk-note"><i></i>Менеджер слушает каждое голосовое и переписывает руками</div></div><div data-k="1"><div data-steps="Приходит|Ждёт в почте без ответа" class="mk two">
   <div class="win"><div class="tb"><i></i><i></i><i></i><span>Сайт · форма заявки</span></div><div class="body fm">
     <label>Имя<span>Сергей</span></label><label>Телефон<span>+7 9•• •••-41-07</span></label><label>Задача<span>Расчёт доставки в Казань</span></label>
     <div class="send">Заявка отправлена</div>
@@ -70,7 +70,7 @@
     <div class="m"><b>Счёт на оплату</b><span>ООО «Вектор»</span></div>
   </div></div>
 </div>
-<div class="mk-note"><i></i>Заявка лежит в общей почте, и её никто не взял в работу</div></div><div data-k="2"><div class="mk report">
+<div class="mk-note"><i></i>Заявка лежит в общей почте, и её никто не взял в работу</div></div><div data-k="2"><div data-steps="Три источника|Сводят в отчёт руками" class="mk report">
   <div class="srcs">
     <div class="win sm"><div class="tb"><i></i><span>1С · продажи</span></div><div class="body num">1 284 000 ₽<em>Ctrl+C</em></div></div>
     <div class="win sm"><div class="tb"><i></i><span>Яндекс Директ</span></div><div class="body num">96 400 ₽<em>Ctrl+C</em></div></div>
@@ -85,7 +85,7 @@
     <div class="r"><span>Конверсия</span><span class="q">?</span></div>
   </div></div>
 </div>
-<div class="mk-note"><i></i>Каждую неделю цифры копируют из трёх систем в одну таблицу</div></div><div data-k="3"><div class="mk two">
+<div class="mk-note"><i></i>Каждую неделю цифры копируют из трёх систем в одну таблицу</div></div><div data-k="3"><div data-steps="Выгрузка|Переносят в 1С вручную" class="mk two">
   <div class="win"><div class="tb"><i></i><i></i><i></i><span>Реализации.xlsx</span></div><div class="body sheet">
     <div class="r h"><span>Контрагент</span><span>Сумма</span></div>
     <div class="r"><span>ООО «Вектор»</span><span>48 200</span></div>
@@ -98,7 +98,7 @@
     <div class="warn">Возможен дубль: «Вектор» уже проведён</div>
   </div></div>
 </div>
-<div class="mk-note"><i></i>Строки переносят вручную — так появляются опечатки и дубли</div></div><div data-k="4"><div class="mk doc-wrap">
+<div class="mk-note"><i></i>Строки переносят вручную — так появляются опечатки и дубли</div></div><div data-k="4"><div data-steps="Копия прошлого договора|Что правят руками" class="mk doc-wrap">
   <div class="win wdoc"><div class="tb"><i></i><i></i><i></i><span>Договор_поставки_копия(3).docx</span></div><div class="body paper">
     <div class="ttl">Договор поставки № <s>187</s> <u>214<em class="caret"></em></u></div>
     <p><s>ООО «Ромашка»</s> <u>ООО «Вектор»</u>, именуемое в дальнейшем «Покупатель»…</p>
@@ -108,7 +108,7 @@
   </div></div>
   <div class="side-tags"><span>Копия прошлого договора</span><span>Реквизиты правят руками</span><span class="b">Риск оставить старые данные</span></div>
 </div>
-<div class="mk-note"><i></i>Каждый раз копируют прошлый договор и вручную меняют реквизиты</div></div><div data-k="5"><div class="mk two">
+<div class="mk-note"><i></i>Каждый раз копируют прошлый договор и вручную меняют реквизиты</div></div><div data-k="5"><div data-steps="Дела Марины|Коллега выясняет заново" class="mk two">
   <div class="win"><div class="tb"><i></i><i></i><i></i><span>Задачи · Марина</span><em class="away">в отпуске до 14.11</em></div><div class="body board">
     <div class="task"><b>Договор с «Вектором»</b><span>на согласовании · где последняя версия?</span></div>
     <div class="task"><b>Отгрузка для Игоря</b><span>ждёт подтверждения</span></div>
@@ -153,28 +153,40 @@
 
     <div class="bento">
       <div class="tile g t-demo reveal" aria-label="Примеры: заявки, отчёты, документы и данные в 1С обрабатываются сами">
-        <div class="fd-tabs" id="fdTabs"><button class="act">Заявки</button><button>Отчёты</button><button>Документы</button><button>Данные в 1С</button></div>
+        <div class="fd-head"><span class="fd-dots" aria-hidden="true"><i></i><i></i><i></i></span><div class="fd-tabs" id="fdTabs"><button class="act">Заявки</button><button>Отчёты</button><button>Документы</button><button>Данные в 1С</button></div></div>
         <div class="fd">
           <div><h4 id="fdInL">Входящие</h4><div class="fd-in" id="fdIn"></div></div>
           <div class="fd-mid"><div class="rail" id="fdRail"></div><div class="node" id="fdNode"></div></div>
           <div><h4 id="fdOutL">Учёт заявок</h4><div class="fd-table" id="fdTable"></div></div>
         </div>
-        <div class="fd-count"><span>Сделано без ручной работы <b id="fdCount">0</b></span><a href="#services">Это 4 примера из 100+ задач, которые можно автоматизировать →</a></div>
+        <div class="fd-count">
+          <div class="fd-c-top">
+            <i class="fd-ok" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+            <div class="fd-c-num"><small>Сделано без ручной работы</small><b id="fdCount">0</b></div>
+            <div class="fd-bars" id="fdBars" aria-hidden="true"></div>
+          </div>
+          <a href="#services">Это 4 примера из 100+ процессов, которые можно автоматизировать →</a>
+        </div>
       </div>
       <div class="tile t-photo reveal">
         <img src="img/ivan.jpg" alt="Иван Панькин" width="1080" height="1080">
         <div class="cap"><b>Иван Панькин</b>Аудит и автоматизация процессов</div>
       </div>
       <a class="tile b t-stat t-cases reveal" href="#case">
-        <div class="row"><span class="desc">Кейсы</span><span class="desc" style="opacity:.8">недавние</span></div>
-        <ul class="mini-cases">
-          <li><b>Отчёты Яндекс Директа для digital-агентства</b><span>40 клиентов · 15 мин → 0 на отчёт · ≈480 ч в год</span></li>
-        </ul>
+        <div class="row"><span class="desc">Кейс</span><span class="desc" style="opacity:.8">недавний</span></div>
+        <div class="cs-big"><b>≈480 ч</b><span>в год на отчётах Яндекс Директа: digital-агентство, 40 клиентов</span></div>
+        <div class="cs-ba">
+          <div><span>Было</span><i class="was"></i><b>15 мин</b></div>
+          <div><span>Стало</span><i class="now"></i><b>0 мин</b></div>
+        </div>
         <span class="more">Смотреть все кейсы <svg><use href="#arr"/></svg></span>
       </a>
       <div class="tile t-tog reveal" id="heroTog" role="button" tabindex="0" aria-pressed="false">
-        <div style="display:flex;justify-content:space-between;align-items:center"><span class="desc" id="heroTogLbl">Сейчас</span><span class="toggle"><i></i></span></div>
-        <div class="state" id="heroTogState">Ручной режим</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span class="desc" id="heroTogLbl">Сейчас: рутина за день</span><span class="toggle"><i></i></span></div>
+        <div>
+          <div class="tg-bar" aria-hidden="true"><i style="flex-grow:1.5" title="Заявки из мессенджеров · 1,5 ч"></i><i style="flex-grow:1" title="Отчёт из трёх таблиц · 1 ч"></i><i style="flex-grow:.8" title="Данные в 1С · 50 мин"></i><i style="flex-grow:.7" title="Договор и счёт · 40 мин"></i></div>
+          <div class="state"><b>4 ч</b> <span id="heroTogState">уходят на ручную работу</span></div>
+        </div>
       </div>
       <div class="tile t-integ reveal">
         <div class="desc muted">Работаю с сервисами, которые у вас уже есть</div>
@@ -192,8 +204,8 @@
     <div class="row reveal">
       <div class="stat"><b><span data-count="4">0</span><sup>+</sup></b><span>года в digital</span></div>
       <div class="stat"><b><span data-count="150">0</span><sup>+</sup></b><span>проектов</span></div>
-      <div class="stat"><b><span data-count="100">0</span><sup>+</sup></b><span>задач, которые можно автоматизировать</span></div>
-      <div class="stat"><b><span data-count="6">0</span></b><span>направлений: заявки, документы, отчёты, связка систем, ИИ-агенты, кабинеты</span></div>
+      <div class="stat"><b><span data-count="100">0</span><sup>+</sup></b><span>процессов, которые можно автоматизировать</span></div>
+      <div class="stat"><b><span data-count="20">0</span><sup>+</sup></b><span>направлений автоматизации для бизнеса</span></div>
     </div>
   </div>
 </section>
@@ -261,9 +273,9 @@
       <div>
         <h2 class="reveal">Одна система <span class="hl">вместо ручного переноса</span></h2>
         <ul class="hub-points reveal">
-          <li><i></i><div><b>Подключаю то, что у вас уже есть</b><span>Сайт, мессенджеры, телефонию, учёт клиентов и 1С</span></div></li>
-          <li><i></i><div><b>Данные ходят сами</b><span>Заявка, отчёт или документ появляются там, где их ждут</span></div></li>
-          <li><i></i><div><b>Команда видит результат</b><span>И занимается клиентами, а не переписыванием</span></div></li>
+          <li><i>01</i><div><em>Входы</em><b>Подключаю то, что у вас уже есть</b><span>Сайт, мессенджеры, телефонию, учёт клиентов и 1С</span></div></li>
+          <li class="mid"><i>02</i><div><em>Система</em><b>Данные ходят сами</b><span>Заявка, отчёт или документ появляются там, где их ждут</span></div></li>
+          <li><i>03</i><div><em>Результат</em><b>Команда видит результат</b><span>И занимается клиентами, а не переписыванием</span></div></li>
         </ul>
       </div>
       <div class="hub reveal">
@@ -314,7 +326,7 @@
       <article class="scard" style="--i:0">
         <div class="sc-text"><div class="desc sc-num">01 / 06</div><h3>Заявки и продажи</h3><p>Бот принимает заявку, разбирает голосовые и заносит в учёт</p><ul><li>Голосовые и скриншоты из Telegram и MAX</li><li>Заявки с сайта, Авито и звонков — в одном учёте</li><li>Менеджер получает готовую заявку</li></ul></div>
         <div class="sc-viz"><div class="win big"><div class="tb"><i></i><i></i><i></i><span>Бот заявок · Telegram</span></div><div class="body v1">
-  <div class="chat" id="chat"></div>
+  <div class="v1-col"><div class="mt-h">Диалог в Telegram</div><div class="chat" id="chat"></div></div>
   <div class="mini-table"><div class="mt-h">Учёт заявок</div><div class="mt-r new"><b>Заказ 20 коробок</b><span>Ольга · сегодня</span><em>новая</em></div><div class="mt-r"><b>Расчёт доставки</b><span>ООО «Вектор»</span><em class="g">в работе</em></div><div class="mt-r"><b>Повтор заказа</b><span>Игорь</span><em class="g">в работе</em></div></div>
   <div class="toast"><i></i>Заявка создана в учёте</div>
 </div></div></div>
