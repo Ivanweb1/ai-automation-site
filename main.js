@@ -56,7 +56,9 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
       ['МП', 'Маркетплейс', 'Отчёт о продажах', 'Отчёт комиссионера', '1С · маркетплейсы', 'в 1С'] ] },
   ];
   let sc = 0, i = 0, n = 0, ticks = 0, manual = false;
-  const msg = (f) => { const el = document.createElement('div'); el.className = 'msg'; el.innerHTML = `<i>${f[0]}</i><div>${f[2]}<small>${f[1]}</small></div>`; return el; };
+  const LOGO = { TG: 'telegram', MAX: 'max', AV: 'avito', 'ЯД': 'yandex-direct', 'МЕТ': 'yandex-metrika', '1С': '1c', GS: 'google-sheets', CRM: 'amocrm', 'МП': 'wildberries', WEB: 'tilda', '@': 'yandex-mail' };
+  const ico = (c) => LOGO[c] ? `<i class="lgo"><img src="img/logos/${LOGO[c]}.svg" alt=""></i>` : `<i>${c}</i>`;
+  const msg = (f) => { const el = document.createElement('div'); el.className = 'msg'; el.innerHTML = `${ico(f[0])}<div>${f[2]}<small>${f[1]}</small></div>`; return el; };
   const row = (f) => { const r = document.createElement('div'); r.className = 'fd-row'; r.innerHTML = `<div><b>${f[3]}</b><br><span>${f[4]}</span></div><em>${f[5]}</em>`; return r; };
   const load = (k) => {
     sc = k; i = 0; ticks = 0;
@@ -156,20 +158,30 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   run(); if (!reduce) setInterval(run, 4000);
 })();
 
-// 7 · примеры: вкладки до/после
+// 7 · примеры: вкладки до/после с визуализацией
 (() => {
   const tabs = [...document.querySelectorAll('#tabs .tab')]; if (!tabs.length) return;
+  const win = (title, body) => `<div class="win"><div class="tb"><i></i><i></i><i></i><span>${title}</span></div><div class="body">${body}</div></div>`;
+  const wave = '<span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i></span>';
   const data = [
-    ['Заказы в Telegram голосовыми и скриншотами. Менеджер сверяет их руками', 'Бот распознаёт заказ, сверяет с каталогом и создаёт заявку'],
-    ['Раз в месяц данные выгружают из нескольких систем и сводят вручную', 'Отчёт собирается сам и приходит в мессенджер в назначенный день'],
-    ['Договор копируют из прошлого и правят реквизиты руками', 'Менеджер вводит данные клиента и получает готовый документ'],
+    ['Заказы в Telegram голосовыми и скриншотами. Менеджер сверяет их руками',
+     win('Telegram · Заказы', `<div class="chat"><div class="bub v"><b class="pl"></b>${wave}0:42</div><div class="bub shot"><span></span><span></span><span class="s"></span>скриншот заказа</div><div class="bub">Как в прошлый раз, только больше</div></div>`),
+     'Бот распознаёт заказ, сверяет с каталогом и создаёт заявку',
+     win('Бот заказов', `<div class="chat"><div class="bub v"><b class="pl"></b>${wave}0:42</div><div class="bub me">Коробки × 20, скотч × 10 — всё есть в каталоге</div><div class="okline"><i></i>Заявка №128 создана в учёте</div></div>`)],
+    ['Раз в месяц данные выгружают из нескольких систем и сводят вручную',
+     win('Отчёт.xlsx', `<div class="sheet"><div class="r h"><span>Показатель</span><span>Месяц</span><span></span></div><div class="r"><span>Выручка</span><span>из 1С</span><span>Ctrl+V</span></div><div class="r"><span>Реклама</span><span>из Директа</span><span>Ctrl+V</span></div><div class="r typing"><span>Заявки</span><span><em class="caret"></em></span><span></span></div></div>`),
+     'Отчёт собирается сам и приходит в мессенджер в назначенный день',
+     win('Telegram · Отчёты', `<div class="chat"><div class="bub me">Отчёт за октябрь: выручка 5,1 млн ₽, заявки 1 240, реклама 380 тыс ₽</div><div class="chart" style="min-height:70px"><i style="height:50%"></i><i style="height:70%;animation-delay:.3s"></i><i style="height:60%;animation-delay:.6s"></i><i class="b" style="height:90%;animation-delay:.9s"></i></div><div class="okline"><i></i>1-е число · 9:00 · пришло само</div></div>`)],
+    ['Договор копируют из прошлого и правят реквизиты руками',
+     `<div class="paper" style="margin:0"><div class="ttl">Договор № <s>187</s> <u>214<em class="caret"></em></u></div><p><s>ООО «Ромашка»</s> <u>ООО «Вектор»</u></p><span class="ln"></span><span class="ln s"></span><p>ИНН <s>7701 ••• 112</s> <u>5032 ••• 908</u></p></div>`,
+     'Менеджер вводит данные клиента и получает готовый документ',
+     win('Карточка клиента', `<div class="fm"><label>Компания<span>ООО «Вектор»</span></label><label>ИНН<span>5032 ••• 908</span></label></div><div class="okline"><i></i>Договор_Вектор.pdf готов</div>`)],
   ];
   const now = $('#baNow'), auto = $('#baAuto');
   const show = (k) => {
     tabs.forEach((t, j) => t.classList.toggle('act', j === k));
-    now.querySelector('p').textContent = data[k][0];
-    auto.querySelector('p').textContent = data[k][1];
-    [now, auto].forEach((el) => { el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); });
+    now.querySelector('p').textContent = data[k][0]; now.querySelector('.ba-viz').innerHTML = data[k][1];
+    auto.querySelector('p').textContent = data[k][2]; auto.querySelector('.ba-viz').innerHTML = data[k][3];
   };
   tabs.forEach((t, k) => t.addEventListener('click', () => show(k)));
   show(0);
@@ -188,8 +200,35 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   }, 0.4);
 })();
 
-// 10 · этапы
-onView($('#stepsBox'), (el) => el.classList.add('in'), 0.4);
+// 10 · этапы: подсвечиваются по очереди, полоса идёт к активному шагу
+(() => {
+  const box = $('#stepsBox'); if (!box) return;
+  const steps = [...box.querySelectorAll('.step')];
+  steps.forEach((st) => st.insertAdjacentHTML('beforeend', '<span class="bar-p"><i></i></span>'));
+  let k = -1, timer = null;
+  const go = () => {
+    k = (k + 1) % steps.length;
+    steps.forEach((st, j) => { st.classList.toggle('act', j === k); st.classList.toggle('done', j < k); });
+    box.style.setProperty('--p', (k / (steps.length - 1) * 100) + '%');
+  };
+  onView(box, () => { box.classList.add('in'); if (reduce) { steps.forEach((st) => st.classList.add('done')); box.style.setProperty('--p', '100%'); return; } go(); timer = setInterval(go, 2400); }, 0.4);
+})();
+
+// 9 · рилсы: превью при наведении, по клику — со звуком в окне
+(() => {
+  const row = $('#reelsRow'); if (!row) return;
+  const modal = $('#vmodal'), mv = modal.querySelector('video');
+  row.querySelectorAll('.reel').forEach((r) => {
+    const v = r.querySelector('video');
+    r.addEventListener('mouseenter', () => { if (reduce) return; if (!v.src) v.src = r.dataset.src; v.play().then(() => r.classList.add('playing')).catch(() => {}); });
+    r.addEventListener('mouseleave', () => { v.pause(); r.classList.remove('playing'); });
+    r.addEventListener('click', () => { mv.src = r.dataset.src; modal.hidden = false; mv.play().catch(() => {}); });
+  });
+  const close = () => { mv.pause(); modal.hidden = true; };
+  modal.addEventListener('click', (e) => { if (e.target === modal || e.target.classList.contains('vclose')) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
+  document.querySelectorAll('.rn').forEach((b) => b.addEventListener('click', () => row.scrollBy({ left: +b.dataset.d * row.clientWidth * 0.8, behavior: 'smooth' })));
+})();
 
 // 12 · форма: обработчик подключается при деплое (пересылка в Telegram без хранения)
 (() => {

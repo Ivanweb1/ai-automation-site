@@ -310,31 +310,51 @@
 <section class="dark" id="services">
   <div class="wrap">
     <h2 class="reveal">Что нужно <span class="hl">автоматизировать</span></h2>
-    <div class="sv-grid">
-      <div class="sv w2 reveal">
-        <div class="ui"><div class="chat" id="chat"></div><div class="toast"><i></i>Заявка создана в учёте</div></div>
-        <div><h3>Заявки и продажи</h3><p>Бот принимает заявку, разбирает голосовые и заносит в учёт</p></div>
-      </div>
-      <div class="sv reveal">
-        <div class="ui" style="padding:10px"><div class="doc"><div class="t"></div><div class="f">Клиент<span></span></div><div class="f">ИНН<span></span></div><div class="f">Сумма<span></span></div><div class="f">Дата<span></span></div></div></div>
-        <div><h3>Документы</h3><p>Договоры, акты, КП и счета собираются из данных по шаблону</p></div>
-      </div>
-      <div class="sv reveal">
-        <div class="ui"><span class="stamp">Пн 8:00</span><div class="chart"><i style="height:40%"></i><i style="height:62%;animation-delay:.3s"></i><i style="height:48%;animation-delay:.6s"></i><i style="height:75%;animation-delay:.9s"></i><i class="b" style="height:92%;animation-delay:1.2s"></i></div></div>
-        <div><h3>Отчёты и данные</h3><p>Отчёт собирается сам из 1С, маркетплейсов и таблиц</p></div>
-      </div>
-      <div class="sv reveal">
-        <div class="ui" style="display:flex;align-items:center"><svg viewBox="0 0 200 48" style="width:100%;color:#F5F4F0;overflow:visible"><path d="M14 9L100 24M14 39L100 24M186 9L100 24M186 39L100 24" stroke="currentColor" stroke-opacity=".3" stroke-width="2.5" class="flowline"/><g fill="none" stroke="currentColor" stroke-width="3"><rect x="3" y="3" width="13" height="13" rx="4"/><rect x="3" y="32" width="13" height="13" rx="4"/><rect x="184" y="3" width="13" height="13" rx="4"/><rect x="184" y="32" width="13" height="13" rx="4"/></g><rect x="78" y="2" width="44" height="44" rx="11" fill="#1769FF" class="blink"/></svg></div>
-        <div><h3>Связка систем</h3><p>Сайт, мессенджеры, телефония, учёт клиентов и 1С обмениваются данными сами</p></div>
-      </div>
-      <div class="sv b reveal">
-        <div class="ui"><div class="chat"><div class="bub">Есть доставка в субботу?</div><div class="bub me">Да, с 10 до 16. Оформить заказ?</div><div class="bub"><span class="typing"><i></i><i></i><i></i></span></div></div></div>
-        <div><h3>ИИ-агенты</h3><p>Где нужно понять текст или речь: разобрать заявку, ответить на вопрос</p></div>
-      </div>
-      <div class="sv w2 reveal">
-        <div class="ui"><div class="dash"><div class="side"></div><div class="kpi">Заявок за неделю<b>128</b></div><div class="kpi on">В работе<b>17</b></div><div class="rows"><i></i><i></i><i></i></div></div></div>
-        <div><h3>Инструменты и сайты</h3><p>Внутренние кабинеты, панели и сайты под ваш процесс</p></div>
-      </div>
+    <div class="stack">
+      <article class="scard" style="--i:0">
+        <div class="sc-text"><div class="desc sc-num">01 / 06</div><h3>Заявки и продажи</h3><p>Бот принимает заявку, разбирает голосовые и заносит в учёт</p><ul><li>Голосовые и скриншоты из Telegram и MAX</li><li>Заявки с сайта, Авито и звонков — в одном учёте</li><li>Менеджер получает готовую заявку</li></ul></div>
+        <div class="sc-viz"><div class="win big"><div class="tb"><i></i><i></i><i></i><span>Бот заявок · Telegram</span></div><div class="body v1">
+  <div class="chat" id="chat"></div>
+  <div class="mini-table"><div class="mt-h">Учёт заявок</div><div class="mt-r new"><b>Заказ 20 коробок</b><span>Ольга · сегодня</span><em>новая</em></div><div class="mt-r"><b>Расчёт доставки</b><span>ООО «Вектор»</span><em class="g">в работе</em></div><div class="mt-r"><b>Повтор заказа</b><span>Игорь</span><em class="g">в работе</em></div></div>
+  <div class="toast"><i></i>Заявка создана в учёте</div>
+</div></div></div>
+      </article>
+      <article class="scard" style="--i:1">
+        <div class="sc-text"><div class="desc sc-num">02 / 06</div><h3>Документы</h3><p>Договоры, акты, КП и счета собираются из данных по шаблону</p><ul><li>Реквизиты подтягиваются из карточки клиента</li><li>Ваш шаблон и фирменное оформление</li><li>Готовый PDF — клиенту или на подпись</li></ul></div>
+        <div class="sc-viz"><div class="v2">
+  <div class="win"><div class="tb"><i></i><i></i><i></i><span>Карточка клиента</span></div><div class="body fm">
+    <label>Компания<span>ООО «Вектор»</span></label><label>ИНН<span>5032 ••• 908</span></label><label>Сумма сделки<span>120 000 ₽</span></label>
+  </div></div>
+  <div class="v-arrow"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div>
+  <div class="doc big"><div class="t"></div><div class="f">Договор №<span></span></div><div class="f">Покупатель<span></span></div><div class="f">ИНН<span></span></div><div class="f">Сумма<span></span></div><div class="f">Подписи<span></span></div><div class="pdf">Договор_Вектор.pdf · готов</div></div>
+</div></div>
+      </article>
+      <article class="scard" style="--i:2">
+        <div class="sc-text"><div class="desc sc-num">03 / 06</div><h3>Отчёты и данные</h3><p>Отчёт собирается сам из 1С, маркетплейсов и таблиц</p><ul><li>Продажи, реклама и заявки в одном отчёте</li><li>Приходит в мессенджер по расписанию</li><li>Цифры из систем, без ручного переноса</li></ul></div>
+        <div class="sc-viz"><div class="win big"><div class="tb"><i></i><i></i><i></i><span>Отчёт собственнику · неделя</span><em class="away">Пн 8:00</em></div><div class="body v3">
+  <div class="kpis"><div><span>Выручка</span><b>1,28 млн ₽</b></div><div><span>Заявки</span><b>312</b></div><div class="on"><span>Реклама</span><b>96 400 ₽</b></div></div>
+  <div class="chart"><i style="height:40%"></i><i style="height:62%;animation-delay:.3s"></i><i style="height:48%;animation-delay:.6s"></i><i style="height:75%;animation-delay:.9s"></i><i style="height:58%;animation-delay:1.2s"></i><i style="height:84%;animation-delay:1.5s"></i><i class="b" style="height:95%;animation-delay:1.8s"></i></div>
+  <div class="sent"><i></i>Отправлено в Telegram и на почту</div>
+</div></div></div>
+      </article>
+      <article class="scard" style="--i:3">
+        <div class="sc-text"><div class="desc sc-num">04 / 06</div><h3>Связка систем</h3><p>Сайт, мессенджеры, телефония, учёт клиентов и 1С обмениваются данными сами</p><ul><li>Подключаю то, что у вас уже есть</li><li>Данные появляются там, где их ждут</li><li>Без двойного ввода и потерянных строк</li></ul></div>
+        <div class="sc-viz"><div class="v4"><div class="pair"><span class="lg"><img src="img/logos/tilda.svg" alt="">Сайт на Tilda</span><span class="wire"><i></i></span><span class="lg"><img src="img/logos/bitrix24.svg" alt="">Битрикс24</span></div><div class="pair"><span class="lg"><img src="img/logos/avito.svg" alt="">Авито</span><span class="wire"><i></i></span><span class="lg"><img src="img/logos/amocrm.svg" alt="">amoCRM</span></div><div class="pair"><span class="lg"><img src="img/logos/1c.svg" alt="">1С</span><span class="wire"><i></i></span><span class="lg"><img src="img/logos/google-sheets.svg" alt="">Google Таблицы</span></div><div class="pair"><span class="lg"><img src="img/logos/max.svg" alt="">MAX</span><span class="wire"><i></i></span><span class="lg"><img src="img/logos/moysklad.svg" alt="">МойСклад</span></div><div class="pair"><span class="lg"><img src="img/logos/yandex-direct.svg" alt="">Яндекс Директ</span><span class="wire"><i></i></span><span class="lg"><img src="img/logos/telegram.svg" alt="">Отчёт в Telegram</span></div></div></div>
+      </article>
+      <article class="scard b" style="--i:4">
+        <div class="sc-text"><div class="desc sc-num">05 / 06</div><h3>ИИ-агенты</h3><p>Где нужно понять текст или речь: разобрать заявку, ответить на вопрос</p><ul><li>Отвечает клиентам на типовые вопросы</li><li>Разбирает голосовые и документы</li><li>Сложное передаёт менеджеру</li></ul></div>
+        <div class="sc-viz"><div class="win big"><div class="tb"><i></i><i></i><i></i><span>ИИ-ассистент · сайт и мессенджеры</span></div><div class="body chat v5">
+  <div class="bub">Есть доставка в субботу? И сколько стоит до Химок?</div>
+  <div class="bub me">Да, в субботу с 10 до 16. До Химок — 900 ₽. Оформить заказ?</div>
+  <div class="bub">Да, 20 коробок как в прошлый раз</div>
+  <div class="bub me"><span class="typing"><i></i><i></i><i></i></span></div>
+  <div class="ai-tags"><span>Понимает текст</span><span>Голос</span><span>Документы</span><span class="b">Передаёт менеджеру</span></div>
+</div></div></div>
+      </article>
+      <article class="scard" style="--i:5">
+        <div class="sc-text"><div class="desc sc-num">06 / 06</div><h3>Инструменты и сайты</h3><p>Внутренние кабинеты, панели и сайты под ваш процесс</p><ul><li>Панель руководителя с цифрами</li><li>Кабинет для сотрудников или клиентов</li><li>Сайт, связанный с учётом</li></ul></div>
+        <div class="sc-viz"><div class="win big"><div class="tb"><i></i><i></i><i></i><span>Кабинет компании</span></div><div class="body v6"><div class="dash"><div class="side"><i></i><i></i><i></i><i></i></div><div class="kpi">Заявок за неделю<b>128</b></div><div class="kpi on">В работе<b>17</b></div><div class="rows"><i></i><i></i><i></i><i></i><i></i></div></div></div></div></div>
+      </article>
     </div>
     <div class="also reveal"><span class="chip">Записи звонков в учёт</span><span class="chip">Ответы на отзывы</span><span class="chip">Цены конкурентов</span><span class="chip more">+ задачи под ваш процесс</span></div>
   </div>
@@ -347,9 +367,9 @@
     <p class="muted reveal" style="margin-top:14px">Примеры типовых задач из заказов бизнеса</p>
     <div class="tabs reveal" id="tabs"><button class="tab act">Оптовые заказы</button><button class="tab">Отчёт собственнику</button><button class="tab">Договоры</button></div>
     <div class="ba reveal">
-      <div class="side now" id="baNow"><div class="row"><span class="desc muted">Сейчас</span><span class="toggle"><i></i></span></div><p></p></div>
-      <div class="mid"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div>
-      <div class="side auto" id="baAuto"><div class="row"><span class="desc">Автоматически</span><span class="toggle on"><i></i></span></div><p></p></div>
+      <div class="side now" id="baNow"><div class="row"><span class="desc muted">Сейчас</span><span class="toggle"><i></i></span></div><div class="ba-viz"></div><p></p></div>
+      <div class="mid"><span class="arrow-chip"><svg viewBox="0 0 24 24"><path d="M6 12h11M12.5 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      <div class="side auto" id="baAuto"><div class="row"><span class="desc">Автоматически</span><span class="toggle on"><i></i></span></div><div class="ba-viz"></div><p></p></div>
     </div>
     <div class="cta-band reveal"><div><b>Найдём такие задачи у вас</b><span>Аудит покажет, какие операции окупятся быстрее всего</span></div><a class="btn btn-blue" href="#audit">Записаться на аудит</a><svg class="sq"><use href="#module"/></svg></div>
   </div>
@@ -357,25 +377,27 @@
 
 <!-- 8 · ЖЕЛАНИЕ: кейс -->
 <section class="dark" id="case">
-  <div class="wrap case">
-    <div class="reveal">
-      <div class="desc muted">Кейс · digital-агентство</div>
-      <h2 style="margin-top:16px">Отчёты <span class="hl">без ручной работы</span></h2>
-      <p class="lede">Digital-агентство, <b>40 клиентов</b> в Яндекс Директе. Сотрудники каждую неделю вручную переносили статистику в таблицы клиентов — <b>около 15 минут</b> на отчёт</p>
-      <div class="case-nums">
-        <div><b>≈<span data-count="480">0</span> ч</b><span>в год освободилось у команды</span></div>
-        <div class="acc"><b>≈<span data-count="230">0</span> тыс ₽</b><span>в год стоят эти часы при окладе 80 тыс ₽</span></div>
-        <div><b>15 мин → 0</b><span>ручной работы на один отчёт</span></div>
-        <div><b><span data-count="500">0</span> ₽</b><span>в месяц — хостинг автоматизации</span></div>
+  <div class="wrap">
+    <div class="case">
+      <div class="reveal">
+        <div class="desc muted">Кейс · digital-агентство</div>
+        <h2 style="margin-top:16px">Отчёты<br><span class="hl">без ручной работы</span></h2>
+        <p class="lede">Digital-агентство, <b>40 клиентов</b> в Яндекс Директе. Сотрудники каждую неделю вручную переносили статистику в таблицы клиентов — <b>около 15 минут</b> на отчёт. Теперь отчёты собираются сами</p>
+        <a class="btn btn-blue" href="#audit">Хочу так же в своём процессе</a>
       </div>
-      <a class="btn btn-blue" href="#audit">Хочу так же в своём процессе</a>
+      <div class="pipe reveal" id="pipe">
+        <div class="src"><div class="box"><span class="lg-i"><img src="img/logos/yandex-direct.svg" alt=""></span><h3>Яндекс Директ</h3><p>Показы, клики, CTR, расход</p></div><div class="box"><span class="lg-i"><img src="img/logos/yandex-metrika.svg" alt=""></span><h3>Метрика</h3><p>Звонки, формы, мессенджеры</p></div></div>
+        <div class="down"><svg><use href="#down"/></svg></div>
+        <div class="box script"><div class="desc clock"><i></i>Скрипт · каждый понедельник в 8:00</div><h3 style="margin-top:10px">Сам забирает статистику по всем клиентам агентского кабинета</h3></div>
+        <div class="down"><svg><use href="#down"/></svg></div>
+        <div class="box out"><div class="sheets" id="sheets"></div><div><span class="lg-i"><img src="img/logos/google-sheets.svg" alt=""></span><h3><span id="sheetsN">0</span> таблиц клиентов</h3><p>Новая строка каждую неделю</p></div></div>
+      </div>
     </div>
-    <div class="pipe reveal" id="pipe">
-      <div class="src"><div class="box"><h3>Яндекс Директ</h3><p>Показы, клики, CTR, расход</p></div><div class="box"><h3>Метрика</h3><p>Звонки, формы, мессенджеры</p></div></div>
-      <div class="down"><svg><use href="#down"/></svg></div>
-      <div class="box script"><div class="desc clock"><i></i>Скрипт · каждый понедельник в 8:00</div><h3 style="margin-top:10px">Сам забирает статистику по всем клиентам агентского кабинета</h3></div>
-      <div class="down"><svg><use href="#down"/></svg></div>
-      <div class="box out"><div class="sheets" id="sheets"></div><div><h3><span id="sheetsN">0</span> таблиц</h3><p>Новая строка каждую неделю</p></div></div>
+    <div class="case-band reveal">
+      <div><b>≈<span data-count="480">0</span> ч</b><span>в год освободилось у команды</span></div>
+      <div class="acc"><b>≈<span data-count="230">0</span> тыс ₽</b><span>в год стоят эти часы при окладе 80 тыс ₽</span></div>
+      <div><b>15 мин → 0</b><span>ручной работы на один отчёт</span></div>
+      <div><b><span data-count="500">0</span> ₽</b><span>в месяц — хостинг автоматизации</span></div>
     </div>
   </div>
 </section>
@@ -389,6 +411,10 @@
       <blockquote>Сначала процесс, <span>потом технология</span></blockquote>
       <p class="txt">Занимаюсь автоматизацией бизнес-процессов. Разбираю, как устроена работа компании, и убираю ручные операции: связываю сайт, мессенджеры, телефонию, учёт клиентов и 1С, настраиваю ботов, отчёты и документы по шаблону. ИИ подключаю там, где он действительно нужен</p>
       <div class="facts"><div><b>4+</b><span>года в digital</span></div><div><b>150+</b><span>проектов</span></div></div>
+      <div class="reels">
+        <div class="reels-head"><span class="desc muted">Рассказываю про автоматизацию в соцсетях</span><span class="reels-nav"><button class="rn" data-d="-1" aria-label="Назад">‹</button><button class="rn" data-d="1" aria-label="Вперёд">›</button></span></div>
+        <div class="reels-row" id="reelsRow"><button class="reel" data-src="video/ai-agent.mp4" aria-label="Смотреть: Где мой ИИ-агент?"><img src="img/reels/ai-agent.jpg" alt="" loading="lazy" width="540" height="960"><video muted playsinline loop preload="none"></video><span class="play"></span><span class="rt">Где мой ИИ-агент?</span></button><button class="reel" data-src="video/report.mp4" aria-label="Смотреть: Отчёт собирается сам"><img src="img/reels/report.jpg" alt="" loading="lazy" width="540" height="960"><video muted playsinline loop preload="none"></video><span class="play"></span><span class="rt">Отчёт собирается сам</span></button><button class="reel" data-src="video/why.mp4" aria-label="Смотреть: Зачем автоматизировать процессы"><img src="img/reels/why.jpg" alt="" loading="lazy" width="540" height="960"><video muted playsinline loop preload="none"></video><span class="play"></span><span class="rt">Зачем автоматизировать процессы</span></button><button class="reel" data-src="video/avito.mp4" aria-label="Смотреть: Автоответ на Авито"><img src="img/reels/avito.jpg" alt="" loading="lazy" width="540" height="960"><video muted playsinline loop preload="none"></video><span class="play"></span><span class="rt">Автоответ на Авито</span></button><button class="reel" data-src="video/presentation.mp4" aria-label="Смотреть: Презентация за минуты"><img src="img/reels/presentation.jpg" alt="" loading="lazy" width="540" height="960"><video muted playsinline loop preload="none"></video><span class="play"></span><span class="rt">Презентация за минуты</span></button><button class="reel" data-src="video/kp.mp4" aria-label="Смотреть: КП через Claude"><img src="img/reels/kp.jpg" alt="" loading="lazy" width="540" height="960"><video muted playsinline loop preload="none"></video><span class="play"></span><span class="rt">КП через Claude</span></button></div>
+      </div>
     </div>
   </div>
 </section>
@@ -405,8 +431,14 @@
       <div class="step reveal"><div class="num">04</div><h3>Внедрение</h3><p>Подключаю к вашим системам, обучаю сотрудников</p></div>
       <div class="step reveal"><div class="num">05</div><h3>Сопровождение</h3><p>Слежу за работой и дорабатываю систему по ходу</p></div>
     </div>
+  </div>
+</section>
+
+<!-- 10б · расходы известны заранее + призыв -->
+<section class="light" id="price">
+  <div class="wrap">
+    <div class="price-head reveal"><h2>Расходы <span class="hl">известны заранее</span></h2><p class="muted">Никаких сюрпризов после запуска: стоимость работ, сервер и подписки — в расчёте до старта</p></div>
     <div class="costs">
-      <div class="costs-head reveal"><h3>Расходы <span class="hl">известны заранее</span></h3></div>
       <div class="cost reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><use href="#lines3" transform="translate(2 2)"/><path d="M56 24H90" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="100" y="0" width="48" height="48" rx="12" fill="#1769FF"/><text x="124" y="31" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="20" fill="#F5F4F0">₽</text></svg><h3>Стоимость работ</h3><p>Называю после аудита, до старта разработки</p></div>
       <div class="cost reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="18" width="12" height="12" rx="4" fill="#1769FF"/><g fill="currentColor" fill-opacity=".35"><rect x="18" y="18" width="12" height="12" rx="4"/><rect x="34" y="18" width="12" height="12" rx="4"/><rect x="50" y="18" width="12" height="12" rx="4"/><rect x="66" y="18" width="12" height="12" rx="4"/><rect x="82" y="18" width="12" height="12" rx="4"/><rect x="98" y="18" width="12" height="12" rx="4"/><rect x="114" y="18" width="12" height="12" rx="4"/><rect x="130" y="18" width="12" height="12" rx="4"/><rect x="146" y="18" width="12" height="12" rx="4"/><rect x="162" y="18" width="12" height="12" rx="4"/><rect x="178" y="18" width="12" height="12" rx="4"/></g></svg><h3>Сервер и подписки</h3><p>Ежемесячные расходы считаю заранее</p></div>
       <div class="cost reveal"><svg class="viz" viewBox="0 0 200 48"><path d="M2 8H190" stroke="#1769FF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" class="flowline"/><g fill="currentColor" fill-opacity=".35"><rect x="2" y="30" width="12" height="16" rx="4" class="bar"/><rect x="22" y="20" width="12" height="26" rx="4" class="bar" style="animation-delay:.3s"/><rect x="42" y="34" width="12" height="12" rx="4" class="bar" style="animation-delay:.6s"/><rect x="62" y="16" width="12" height="30" rx="4" class="bar" style="animation-delay:.9s"/><rect x="82" y="26" width="12" height="20" rx="4" class="bar" style="animation-delay:1.2s"/></g></svg><h3>ИИ-запросы</h3><p>Ставлю лимиты, расходы остаются в рамках бюджета</p></div>
@@ -421,8 +453,10 @@
   <div class="wrap faq-wrap">
     <div class="side reveal">
       <h2>Частые <span class="hl">вопросы</span></h2>
-      <p>Не нашли ответ — напишите, подскажу, с чего начать</p>
-      <a class="btn btn-dark" href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Написать в Telegram</a>
+      <div class="ask">
+        <div class="ask-top"><img src="img/ivan.jpg" alt="" width="64" height="64"><div><b>Не нашли ответ?</b><span>Напишите — отвечу лично и подскажу, с чего начать</span></div></div>
+        <div class="ask-btns"><a class="btn btn-blue" href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Написать в Telegram</a><a class="btn btn-line" href="tel:+79774659451">+7 977 465-94-51</a></div>
+      </div>
     </div>
     <div class="faq reveal">
       <details open><summary>Что такое аудит бизнес-процессов?</summary><p>Разбираем, как работа устроена сейчас: откуда приходят заявки, где хранятся данные, что сотрудники делают руками. На выходе — список задач, которые стоит автоматизировать, с решением, сроками и расходами</p></details>
@@ -445,12 +479,18 @@
         <li><div>Проводим аудит<span>Разбираем, как процесс устроен сейчас и где уходит время</span></div></li>
         <li><div>Получаете решение с расчётом<span>Что автоматизировать, сроки, стоимость и ежемесячные расходы</span></div></li>
       </ol>
+      <div class="final-contacts">
+        <img src="img/ivan.jpg" alt="" width="56" height="56">
+        <div><b>Иван Панькин</b><span>Отвечу лично</span></div>
+        <a href="https://t.me/ivan_web_1" target="_blank" rel="noopener">@ivan_web_1</a>
+        <a href="tel:+79774659451">+7 977 465-94-51</a>
+      </div>
     </div>
     <form class="form reveal" id="leadForm" action="/api/lead" method="post">
       <h3>Записаться на аудит</h3>
       <label>Имя<input type="text" name="name" required autocomplete="name"></label>
       <label>Телефон или Telegram<input type="text" name="contact" required autocomplete="tel"></label>
-      <label class="agree"><input type="checkbox" name="agree" required>Согласен на обработку персональных данных по <a href="/privacy/">политике конфиденциальности</a></label>
+      <label class="agree"><input type="checkbox" name="agree" required><span>Согласен на обработку персональных данных по <a href="/privacy/">политике конфиденциальности</a></span></label>
       <button class="btn btn-blue" type="submit">Отправить заявку</button>
       <div class="or">или</div>
       <a class="btn btn-line" href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Написать в Telegram</a>
@@ -460,16 +500,23 @@
 </section>
 
 </main>
+<div class="vmodal" id="vmodal" hidden><button class="vclose" aria-label="Закрыть">×</button><video controls playsinline></video></div>
 
 <footer>
+  <svg class="f-giant" aria-hidden="true"><use href="#module"/></svg>
   <div class="wrap">
-    <div class="cols">
-      <div><svg class="mark"><use href="#mark"/></svg><p class="slogan">Сначала процесс,<br>потом технология</p></div>
-      <div><h4>Разделы</h4><ul><li><a href="#services">Что автоматизирую</a></li><li><a href="#case">Кейс</a></li><li><a href="#about">Обо мне</a></li><li><a href="#faq">Вопросы</a></li></ul></div>
-      <div><h4>Задачи</h4><ul><li>Заявки и продажи</li><li>Документы</li><li>Отчёты и данные</li><li>Связка систем</li><li>ИИ-агенты</li></ul></div>
-      <div><h4>Контакты</h4><ul><li><a href="https://t.me/ivan_web_1" target="_blank" rel="noopener">Telegram @ivan_web_1</a></li><li><a href="tel:+79774659451">+7 977 465-94-51</a></li></ul></div>
+    <div class="f-top">
+      <p class="f-slogan">Сначала процесс,<br><span>потом технология</span></p>
+      <a class="f-cta" href="#audit"><span>Записаться<br>на аудит</span><svg viewBox="0 0 24 24"><path d="M6 12h11M12.5 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div class="bottom"><span>Иван Панькин · Аудит и автоматизация бизнес-процессов</span><a href="/privacy/">Политика конфиденциальности</a></div>
+    <div class="f-mid">
+      <div class="f-contacts">
+        <a href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><span class="desc">Telegram</span>@ivan_web_1</a>
+        <a href="tel:+79774659451"><span class="desc">Телефон</span>+7 977 465-94-51</a>
+      </div>
+      <nav class="f-nav"><a href="#services">Что автоматизирую</a><a href="#case">Кейсы</a><a href="#about">Обо мне</a><a href="#price">Расходы</a><a href="#faq">Вопросы</a></nav>
+    </div>
+    <div class="f-bottom"><svg class="mark"><use href="#mark"/></svg><span>Иван Панькин · Аудит и автоматизация бизнес-процессов</span><a href="/privacy/">Политика конфиденциальности</a></div>
   </div>
 </footer>
 
