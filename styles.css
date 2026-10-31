@@ -720,3 +720,7 @@ footer .wrap { position: relative; }
 /* шкала дня не прыгает: фиксированная высота подписи и заголовка */
 .day .note { min-height: 2.9em; }
 .day-top .lbl b { min-width: 9.5em; }
+
+/* обо мне: фото не шире своей колонки */
+.about .photo { aspect-ratio: auto; width: 100%; height: 100%; min-height: clamp(420px, 40vw, 720px); }
+@media (max-width: 1100px) { .about .photo { height: auto; aspect-ratio: 1 / 1; min-height: 0; } }
