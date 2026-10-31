@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- превью на GitHub Pages: не индексировать; убрать при запуске на своём домене -->
+<meta name="robots" content="noindex, nofollow">
+<title>Автоматизация бизнес-процессов под ключ — Иван Панькин</title>
+<meta name="description" content="Аудит и автоматизация бизнес-процессов для малого бизнеса: заявки, учёт клиентов, отчёты и документы работают сами. Настраиваю под ваш процесс то, что у вас уже есть.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- знак — геометрия из BRAND_ASSET_KIT/00_BRAND_GUIDE/logo-mark.original.svg -->
+    <symbol id="mark" viewBox="0 0 390 390">
+      <g fill="currentColor" fill-rule="evenodd">
+        <path d="M42 0H138A42 42 0 0 1 180 42V138A42 42 0 0 1 138 180H42A42 42 0 0 1 0 138V42A42 42 0 0 1 42 0ZM54 38A16 16 0 0 0 38 54V126A16 16 0 0 0 54 142H126A16 16 0 0 0 142 126V54A16 16 0 0 0 126 38Z"/>
+        <path d="M252 0H348A42 42 0 0 1 390 42V138A42 42 0 0 1 348 180H252A42 42 0 0 1 210 138V42A42 42 0 0 1 252 0ZM264 38A16 16 0 0 0 248 54V126A16 16 0 0 0 264 142H336A16 16 0 0 0 352 126V54A16 16 0 0 0 336 38Z"/>
+        <path d="M42 210H138A42 42 0 0 1 180 252V348A42 42 0 0 1 138 390H42A42 42 0 0 1 0 348V252A42 42 0 0 1 42 210ZM54 248A16 16 0 0 0 38 264V336A16 16 0 0 0 54 352H126A16 16 0 0 0 142 336V264A16 16 0 0 0 126 248Z"/>
+        <rect x="340" y="210" width="50" height="50" rx="12"/><rect x="275" y="275" width="50" height="50" rx="12"/>
+        <rect x="210" y="340" width="50" height="50" rx="12"/><rect x="340" y="340" width="50" height="50" rx="12"/>
+      </g>
+      <rect x="210" y="210" width="50" height="50" rx="12" fill="#1769FF"/>
+    </symbol>
+    <symbol id="module" viewBox="0 0 180 180">
+      <path fill="currentColor" fill-rule="evenodd" d="M42 0H138A42 42 0 0 1 180 42V138A42 42 0 0 1 138 180H42A42 42 0 0 1 0 138V42A42 42 0 0 1 42 0ZM54 38A16 16 0 0 0 38 54V126A16 16 0 0 0 54 142H126A16 16 0 0 0 142 126V54A16 16 0 0 0 126 38Z"/>
+    </symbol>
+    <symbol id="arr" viewBox="0 0 48 24"><path d="M2 12H44M34 3L45 12L34 21" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.3-.1-.5-.6-.2L6.3 13.1l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.7.2 1.4 1.3z"/></symbol>
+    <!-- строки внутри модуля таблицы -->
+    <g id="lines3"><rect x="11" y="14" width="20" height="4" rx="2" fill="currentColor" fill-opacity=".3"/><rect x="11" y="23" width="14" height="4" rx="2" fill="currentColor" fill-opacity=".3"/><rect x="11" y="32" width="18" height="4" rx="2" fill="currentColor" fill-opacity=".3"/></g>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#" aria-label="На главную"><svg class="mark"><use href="#mark"/></svg></a>
+    <nav>
+      <a href="#services">Что автоматизирую</a>
+      <a href="#case">Кейс</a>
+      <a href="#about">Обо мне</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-blue" href="#audit">Записаться на аудит</a>
+  </div>
+</header>
+
+<main>
+
+<!-- 1 · ВНИМАНИЕ — первый экран + призыв -->
+<section class="hero dark">
+  <svg class="giant" aria-hidden="true"><use href="#module"/></svg>
+  <div class="wrap">
+    <div>
+      <div class="desc muted">Автоматизация бизнес-процессов</div>
+      <h1 style="margin-top:20px">Ручные процессы бизнеса — <span class="hl">в систему</span></h1>
+      <p class="lead">Заявки, отчёты, документы и учёт клиентов работают сами. Настраиваю под ваш процесс то, что у вас уже есть</p>
+      <div class="btns">
+        <a class="btn btn-blue" href="#audit">Записаться на аудит процессов</a>
+        <a class="btn btn-line" href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Написать в Telegram</a>
+      </div>
+    </div>
+    <div class="flow-demo" aria-label="Пример: заявки из разных каналов сами попадают в учёт">
+      <div class="fd-col"><h4>Входящие</h4><div class="fd-in" id="fdIn"></div></div>
+      <div class="fd-mid"><div class="rail" id="fdRail"></div><div class="node" id="fdNode"></div></div>
+      <div class="fd-col"><h4>Учёт заявок</h4><div class="fd-table" id="fdTable"></div></div>
+      <div class="fd-count">Заявок разобрано без ручной работы <b id="fdCount">0</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Узнаёте свой бизнес -->
+<section class="light" id="pains">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Узнаёте <span class="hl">свой бизнес?</span></h2></div>
+    <div class="grid3">
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><g><rect x="2" y="18" width="4" height="12" rx="2" fill="currentColor" class="bar"/><rect x="10" y="10" width="4" height="28" rx="2" fill="currentColor" class="bar" style="animation-delay:.2s"/><rect x="18" y="14" width="4" height="20" rx="2" fill="currentColor" class="bar" style="animation-delay:.4s"/><rect x="26" y="6" width="4" height="36" rx="2" fill="currentColor" class="bar" style="animation-delay:.6s"/><rect x="34" y="16" width="4" height="16" rx="2" fill="currentColor" class="bar" style="animation-delay:.8s"/></g><path d="M50 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="102" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><g transform="translate(102 2)"><rect x="11" y="12" width="20" height="4" rx="2" fill="#1769FF" class="blink"/><rect x="11" y="21" width="14" height="4" rx="2" fill="currentColor" fill-opacity=".3"/><rect x="11" y="30" width="18" height="4" rx="2" fill="currentColor" fill-opacity=".3"/></g></svg><h3>Заказы голосовыми</h3><p>И скриншотами. Менеджер полдня переписывает их в таблицу</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><use href="#lines3" transform="translate(2 2)"/><path d="M56 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="102" y="2" width="44" height="44" rx="11" fill="none" stroke="#1769FF" stroke-width="3" stroke-dasharray="6 6" class="blink"/></svg><h3>Заявки с сайта теряются</h3><p>Часть обращений теряется по дороге в учёт и остаётся без ответа</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="12" height="12" rx="4" fill="currentColor"/><rect x="2" y="18" width="12" height="12" rx="4" fill="#1769FF" class="blink"/><rect x="2" y="34" width="12" height="12" rx="4" fill="currentColor"/><path d="M26 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="102" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><use href="#lines3" transform="translate(102 2)"/></svg><h3>Отчёты собирают руками</h3><p>Каждую неделю сотрудник сводит цифры из разных систем и таблиц</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><path d="M24 4V44M4 24H44" stroke="currentColor" stroke-width="3"/><path d="M56 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="100" y="0" width="48" height="48" rx="12" fill="currentColor"/><text x="124" y="30" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="16" fill="var(--inv)">1С</text><rect x="140" y="-4" width="14" height="14" rx="4" fill="#1769FF" class="blink"/></svg><h3>Из Excel и почты в 1С</h3><p>Данные переносят вручную, с опечатками и дублями</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="4"/><path d="M56 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="102" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><g transform="translate(102 2)"><rect x="11" y="12" width="20" height="4" rx="2" fill="currentColor" fill-opacity=".3"/><rect x="11" y="21" width="14" height="4" rx="2" fill="#1769FF" class="blink"/><rect x="11" y="30" width="18" height="4" rx="2" fill="currentColor" fill-opacity=".3"/></g></svg><h3>Договоры по шаблону</h3><p>Каждый раз копируют прошлый и правят реквизиты</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><path d="M52 24H62" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="68" y="2" width="44" height="44" rx="11" fill="none" stroke="#1769FF" stroke-width="3" stroke-dasharray="6 6" class="blink"/><path d="M118 24H128" stroke="currentColor" stroke-opacity=".2" stroke-width="3" stroke-linecap="round"/><rect x="134" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-opacity=".2" stroke-width="4"/></svg><h3>Сотрудник в отпуске</h3><p>Дела передают коллеге, и он заново выясняет, что и на каком этапе</p></div>
+    </div>
+    <div class="also reveal"><div class="desc">И ещё</div><span><i></i>Счета на оплату</span><span><i></i>Акты сверки</span><span><i></i>Дебиторка</span><span><i></i>Ответы на отзывы</span><b>+ десятки похожих задач</b></div>
+  </div>
+</section>
+
+<!-- 3 · ИНТЕРЕС — во что обходится + призыв -->
+<section class="dark" id="cost">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Во что обходится<br><span class="hl">ручной режим</span> в бизнесе</h2></div>
+    <div class="grid2">
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><g><rect x="2" y="2" width="12" height="44" rx="4" fill="currentColor" fill-opacity=".15"/><rect x="2" y="14" width="12" height="32" rx="4" fill="currentColor" class="bar"/><rect x="24" y="2" width="12" height="44" rx="4" fill="currentColor" fill-opacity=".15"/><rect x="24" y="8" width="12" height="38" rx="4" fill="currentColor" class="bar" style="animation-delay:.3s"/><rect x="46" y="2" width="12" height="44" rx="4" fill="currentColor" fill-opacity=".15"/><rect x="46" y="18" width="12" height="28" rx="4" fill="currentColor" class="bar" style="animation-delay:.6s"/><rect x="68" y="2" width="12" height="44" rx="4" fill="currentColor" fill-opacity=".15"/><rect x="68" y="10" width="12" height="36" rx="4" fill="currentColor" class="bar" style="animation-delay:.9s"/><rect x="90" y="2" width="12" height="44" rx="4" fill="currentColor" fill-opacity=".15"/><rect x="90" y="12" width="12" height="34" rx="4" fill="#1769FF" class="bar" style="animation-delay:1.2s"/></g></svg><h3>Время</h3><p>Часы сотрудников уходят на перенос данных</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="6" width="120" height="8" rx="4" fill="currentColor" fill-opacity=".3"/><rect x="2" y="20" width="96" height="8" rx="4" fill="currentColor"/><rect x="2" y="34" width="96" height="8" rx="4" fill="currentColor"/><rect x="110" y="18" width="12" height="12" rx="4" fill="#1769FF" class="blink"/><rect x="110" y="32" width="12" height="12" rx="4" fill="#1769FF" class="blink" style="animation-delay:.6s"/></svg><h3>Ошибки</h3><p>Ручной перенос — это опечатки, дубли и потерянные строки</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="16" width="16" height="16" rx="5" fill="currentColor"/><path d="M30 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="102" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="4"/><rect x="117" y="17" width="14" height="14" rx="4" fill="#1769FF" class="blink"/></svg><h3>Клиенты</h3><p>Заявка без быстрого ответа уходит к конкуренту</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><path d="M14 9L100 24M14 39L100 24M186 9L100 24M186 39L100 24" stroke="currentColor" stroke-opacity=".3" stroke-width="2.5" class="flowline"/><rect x="2" y="2" width="14" height="14" rx="4" fill="currentColor" fill-opacity=".45"/><rect x="2" y="32" width="14" height="14" rx="4" fill="currentColor" fill-opacity=".45"/><rect x="184" y="2" width="14" height="14" rx="4" fill="currentColor" fill-opacity=".45"/><rect x="184" y="32" width="14" height="14" rx="4" fill="currentColor" fill-opacity=".45"/><rect x="78" y="2" width="44" height="44" rx="11" fill="#1769FF" class="blink"/></svg><h3>Зависимость от людей</h3><p>Процесс держится на одном сотруднике</p></div>
+    </div>
+    <div class="also reveal"><div class="desc">И ещё</div><span><i></i>Кассовые разрывы</span><span><i></i>Штрафы маркетплейсов</span><span><i></i>Заявки с рекламы без продаж</span><b>+ другие потери</b></div>
+    <div class="cta reveal"><p>Посчитаем, сколько ручной режим стоит именно вам<span>На аудите разбираю ваш процесс и показываю, где уходят время и деньги</span></p><a class="btn btn-blue" href="#audit">Записаться на аудит</a></div>
+  </div>
+</section>
+
+<!-- 4 · ручной режим → автоматически (интерактив) -->
+<section class="light" id="switch">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Рутину выполняет система<br><span class="hl">решения принимает команда</span></h2><p class="muted">Нажмите на тумблер — так выглядит один рабочий день до и после автоматизации</p></div>
+    <div class="switcher" id="switcher">
+      <div class="mode mode-hand reveal">
+        <div class="row"><span class="desc muted">Сейчас</span></div>
+        <h3>Ручной режим</h3>
+        <ul class="tasks">
+          <li>Переписать заявки из мессенджеров <b>1,5 ч</b></li>
+          <li>Свести отчёт из трёх таблиц <b>1 ч</b></li>
+          <li>Заполнить договор и счёт <b>40 мин</b></li>
+          <li>Перенести данные в 1С <b>50 мин</b></li>
+        </ul>
+        <div class="total muted">Пример рабочего дня одного сотрудника</div>
+      </div>
+      <div class="mode mode-auto reveal">
+        <div class="row"><button class="toggle" id="toggle" aria-label="Переключить ручной режим на автоматический" aria-pressed="false"><i></i></button><span class="desc">После запуска</span></div>
+        <h3>Автоматически</h3>
+        <ul class="tasks">
+          <li>Заявки сами попадают в учёт <b id="t1">—</b></li>
+          <li>Отчёт приходит в мессенджер <b id="t2">—</b></li>
+          <li>Документ собирается из данных <b id="t3">—</b></li>
+          <li>Данные уходят в 1С сами <b id="t4">—</b></li>
+        </ul>
+        <div class="total">Команда проверяет результат и работает с клиентами</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · что нужно автоматизировать + призыв -->
+<section class="dark" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Что нужно <span class="hl">автоматизировать</span></h2></div>
+    <div class="grid3">
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="18" width="4" height="12" rx="2" fill="currentColor" class="bar"/><rect x="10" y="10" width="4" height="28" rx="2" fill="currentColor" class="bar" style="animation-delay:.2s"/><rect x="18" y="14" width="4" height="20" rx="2" fill="currentColor" class="bar" style="animation-delay:.4s"/><rect x="26" y="6" width="4" height="36" rx="2" fill="currentColor" class="bar" style="animation-delay:.6s"/><rect x="34" y="16" width="4" height="16" rx="2" fill="currentColor" class="bar" style="animation-delay:.8s"/><path d="M50 24H72" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="80" y="14" width="20" height="20" rx="6" fill="#1769FF" class="blink"/><path d="M108 24H128" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="138" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><use href="#lines3" transform="translate(138 2)"/></svg><h3>Заявки и продажи</h3><p>Бот принимает заявку, разбирает голосовые и заносит в учёт</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="6" width="40" height="8" rx="4" fill="currentColor" fill-opacity=".45"/><rect x="2" y="20" width="40" height="8" rx="4" fill="currentColor" fill-opacity=".45"/><rect x="2" y="34" width="40" height="8" rx="4" fill="currentColor" fill-opacity=".45"/><path d="M54 24H92" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="102" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><g transform="translate(102 2)"><rect x="11" y="12" width="20" height="4" rx="2" fill="#1769FF" class="blink"/><rect x="11" y="21" width="14" height="4" rx="2" fill="currentColor" fill-opacity=".3"/><rect x="11" y="30" width="18" height="4" rx="2" fill="currentColor" fill-opacity=".3"/></g></svg><h3>Документы</h3><p>Договоры, акты, КП и счета собираются из данных по шаблону</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="30" width="12" height="16" rx="4" fill="currentColor" fill-opacity=".35" class="bar"/><rect x="22" y="20" width="12" height="26" rx="4" fill="currentColor" fill-opacity=".35" class="bar" style="animation-delay:.3s"/><rect x="42" y="24" width="12" height="22" rx="4" fill="currentColor" fill-opacity=".35" class="bar" style="animation-delay:.6s"/><rect x="62" y="6" width="12" height="40" rx="4" fill="#1769FF" class="bar" style="animation-delay:.9s"/></svg><h3>Отчёты и данные</h3><p>Отчёт собирается сам из 1С, маркетплейсов и таблиц</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><path d="M14 9L100 24M14 39L100 24M186 9L100 24M186 39L100 24" stroke="currentColor" stroke-opacity=".3" stroke-width="2.5" class="flowline"/><g fill="none" stroke="currentColor" stroke-width="3"><rect x="3" y="3" width="13" height="13" rx="4"/><rect x="3" y="32" width="13" height="13" rx="4"/><rect x="184" y="3" width="13" height="13" rx="4"/><rect x="184" y="32" width="13" height="13" rx="4"/></g><rect x="78" y="2" width="44" height="44" rx="11" fill="#1769FF" class="blink"/></svg><h3>Связка систем</h3><p>Сайт, мессенджеры, телефония, учёт клиентов и 1С обмениваются данными сами</p></div>
+      <div class="card b reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="96" height="20" rx="8" fill="currentColor" fill-opacity=".35"/><rect x="52" y="26" width="120" height="20" rx="8" fill="currentColor" class="blink"/></svg><h3>ИИ-агенты</h3><p>Где нужно понять текст или речь: разобрать заявку, ответить на вопрос</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="140" height="44" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M2 14H142" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/><rect x="10" y="20" width="22" height="20" rx="4" fill="currentColor" fill-opacity=".35"/><rect x="38" y="20" width="96" height="20" rx="4" fill="#1769FF" class="blink"/></svg><h3>Инструменты и сайты</h3><p>Внутренние кабинеты, панели и сайты под ваш процесс</p></div>
+    </div>
+    <div class="also reveal"><div class="desc">И ещё</div><span><i></i>Записи звонков в учёт</span><span><i></i>Ответы на отзывы</span><span><i></i>Цены конкурентов</span><b>+ задачи под ваш процесс</b></div>
+    <div class="cta reveal"><p>Не знаете, с чего начать?<span>На аудите найдём участок, где автоматизация окупится быстрее всего</span></p><a class="btn btn-blue" href="#audit">Провести аудит моих процессов</a></div>
+  </div>
+</section>
+
+<!-- 6 · как это выглядит -->
+<section class="light" id="examples">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Как это <span class="hl">выглядит</span></h2><p class="muted">Примеры типовых задач из заказов бизнеса</p></div>
+    <div class="ex-head reveal"><div></div><div><span class="mini-toggle off"><i></i></span><span class="desc muted">Сейчас</span></div><div></div><div><span class="mini-toggle on"><i></i></span><span class="desc">Автоматически</span></div></div>
+    <div class="ex-row reveal"><div><svg class="viz" viewBox="0 0 160 40"><rect x="2" y="15" width="4" height="10" rx="2" fill="currentColor" class="bar"/><rect x="10" y="8" width="4" height="24" rx="2" fill="currentColor" class="bar" style="animation-delay:.2s"/><rect x="18" y="12" width="4" height="16" rx="2" fill="currentColor" class="bar" style="animation-delay:.4s"/><rect x="26" y="5" width="4" height="30" rx="2" fill="currentColor" class="bar" style="animation-delay:.6s"/><rect x="34" y="13" width="4" height="14" rx="2" fill="currentColor" class="bar" style="animation-delay:.8s"/><path d="M48 20H76" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="86" y="1" width="38" height="38" rx="10" fill="none" stroke="currentColor" stroke-width="3.5"/><rect x="96" y="12" width="18" height="3.5" rx="1.75" fill="#1769FF" class="blink"/><rect x="96" y="18.5" width="12" height="3.5" rx="1.75" fill="currentColor" fill-opacity=".3"/><rect x="96" y="25" width="16" height="3.5" rx="1.75" fill="currentColor" fill-opacity=".3"/></svg><h3>Оптовые заказы</h3></div><p class="now">Заказы в Telegram голосовыми и скриншотами. Менеджер сверяет их руками</p><div class="arrow"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div><p class="auto">Бот распознаёт заказ, сверяет с каталогом и создаёт заявку</p></div>
+    <div class="ex-row reveal"><div><svg class="viz" viewBox="0 0 160 40"><rect x="2" y="1" width="11" height="11" rx="3.5" fill="currentColor"/><rect x="2" y="14.5" width="11" height="11" rx="3.5" fill="currentColor"/><rect x="2" y="28" width="11" height="11" rx="3.5" fill="currentColor"/><path d="M24 20H76" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="86" y="1" width="38" height="38" rx="10" fill="none" stroke="currentColor" stroke-width="3.5"/><rect x="96" y="12" width="18" height="3.5" rx="1.75" fill="#1769FF" class="blink"/><rect x="96" y="18.5" width="12" height="3.5" rx="1.75" fill="currentColor" fill-opacity=".3"/><rect x="96" y="25" width="16" height="3.5" rx="1.75" fill="currentColor" fill-opacity=".3"/></svg><h3>Отчёт собственнику</h3></div><p class="now">Раз в месяц данные выгружают из нескольких систем и сводят вручную</p><div class="arrow"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div><p class="auto">Отчёт собирается сам и приходит в мессенджер в назначенный день</p></div>
+    <div class="ex-row reveal"><div><svg class="viz" viewBox="0 0 160 40"><rect x="2" y="1" width="38" height="38" rx="10" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="3.5"/><path d="M48 20H76" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="86" y="1" width="38" height="38" rx="10" fill="none" stroke="currentColor" stroke-width="3.5"/><rect x="96" y="12" width="18" height="3.5" rx="1.75" fill="#1769FF" class="blink"/><rect x="96" y="18.5" width="12" height="3.5" rx="1.75" fill="currentColor" fill-opacity=".3"/><rect x="96" y="25" width="16" height="3.5" rx="1.75" fill="currentColor" fill-opacity=".3"/></svg><h3>Договоры</h3></div><p class="now">Договор копируют из прошлого и правят реквизиты руками</p><div class="arrow"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div><p class="auto">Менеджер вводит данные клиента и получает готовый документ</p></div>
+  </div>
+</section>
+
+<!-- 7 · ЖЕЛАНИЕ — кейс + призыв -->
+<section class="light" id="case" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="desc muted">Кейс · digital-агентство</div>
+      <h2 style="margin-top:16px">Отчёты <span class="hl">без ручной работы</span></h2>
+      <p class="case-lede muted">Digital-агентство, <b style="color:var(--graphite)">40 клиентов</b> в Яндекс Директе. Сотрудники каждую неделю вручную переносили статистику в таблицы клиентов — <b style="color:var(--graphite)">около 15 минут</b> на отчёт</p>
+    </div>
+    <div class="case-flow reveal" id="caseFlow">
+      <div class="stack">
+        <div class="card"><h3>Яндекс Директ</h3><p>Показы, клики, CTR, расход</p></div>
+        <div class="card"><h3>Метрика</h3><p>Звонки, формы, мессенджеры</p></div>
+      </div>
+      <div class="arrow"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div>
+      <div class="card b mid"><div class="desc clock"><i></i>Скрипт · каждый понедельник в 8:00</div><h3>Сам забирает статистику по всем клиентам агентского кабинета</h3></div>
+      <div class="arrow"><svg viewBox="0 0 48 24"><use href="#arr"/></svg></div>
+      <div class="card out"><div class="sheets" id="sheets"></div><div><h3><span id="sheetsN">0</span> таблиц</h3><p>Новая строка каждую неделю</p></div></div>
+    </div>
+    <div class="nums reveal">
+      <div><b>≈<span data-count="480">0</span> ч</b><span>в год освободилось у команды</span></div>
+      <div class="acc"><b>≈<span data-count="230">0</span> тыс ₽</b><span>в год стоят эти часы при окладе 80 тыс ₽</span></div>
+      <div><b>15 мин → 0</b><span>ручной работы на один отчёт</span></div>
+      <div><b><span data-count="500">0</span> ₽</b><span>в месяц — хостинг автоматизации</span></div>
+    </div>
+    <div class="cta reveal"><p>Хотите так же в своём процессе?<span>Начнём с аудита: покажу, какие отчёты и операции можно убрать у вас</span></p><a class="btn btn-blue" href="#audit">Записаться на аудит</a></div>
+  </div>
+</section>
+
+<!-- 8 · обо мне -->
+<section class="dark about" id="about">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Иван Панькин</h2>
+      <div class="facts"><div><b>4+</b><span>года в digital</span></div><div><b>150+</b><span>проектов</span></div></div>
+      <p class="txt">Занимаюсь автоматизацией бизнес-процессов. Разбираю, как устроена работа компании, и убираю ручные операции: связываю сайт, мессенджеры, телефонию, учёт клиентов и 1С, настраиваю ботов, отчёты и документы по шаблону. ИИ подключаю там, где он действительно нужен</p>
+      <div class="desc muted" style="margin-top:36px">Сначала процесс, потом технология</div>
+    </div>
+    <div class="photo reveal"><img src="img/ivan.jpg" alt="Иван Панькин" loading="lazy" width="1080" height="1080"></div>
+  </div>
+</section>
+
+<!-- 9 · расходы известны заранее + призыв -->
+<section class="light" id="price">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Расходы <span class="hl">известны заранее</span></h2></div>
+    <div class="grid2">
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="44" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><use href="#lines3" transform="translate(2 2)"/><path d="M56 24H90" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" class="flowline"/><rect x="100" y="0" width="48" height="48" rx="12" fill="#1769FF"/><text x="124" y="31" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="20" fill="#F5F4F0">₽</text></svg><h3>Стоимость работ</h3><p>Называю после аудита процесса, до старта разработки</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="18" width="12" height="12" rx="4" fill="#1769FF"/><g fill="currentColor" fill-opacity=".35"><rect x="18" y="18" width="12" height="12" rx="4"/><rect x="34" y="18" width="12" height="12" rx="4"/><rect x="50" y="18" width="12" height="12" rx="4"/><rect x="66" y="18" width="12" height="12" rx="4"/><rect x="82" y="18" width="12" height="12" rx="4"/><rect x="98" y="18" width="12" height="12" rx="4"/><rect x="114" y="18" width="12" height="12" rx="4"/><rect x="130" y="18" width="12" height="12" rx="4"/><rect x="146" y="18" width="12" height="12" rx="4"/><rect x="162" y="18" width="12" height="12" rx="4"/><rect x="178" y="18" width="12" height="12" rx="4"/></g></svg><h3>Сервер и подписки</h3><p>Ежемесячные расходы считаю заранее</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><path d="M2 8H190" stroke="#1769FF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" class="flowline"/><g fill="currentColor" fill-opacity=".35"><rect x="2" y="30" width="12" height="16" rx="4" class="bar"/><rect x="22" y="20" width="12" height="26" rx="4" class="bar" style="animation-delay:.3s"/><rect x="42" y="34" width="12" height="12" rx="4" class="bar" style="animation-delay:.6s"/><rect x="62" y="16" width="12" height="30" rx="4" class="bar" style="animation-delay:.9s"/><rect x="82" y="26" width="12" height="20" rx="4" class="bar" style="animation-delay:1.2s"/><rect x="102" y="22" width="12" height="24" rx="4" class="bar" style="animation-delay:1.5s"/></g></svg><h3>ИИ-запросы</h3><p>Ставлю лимиты, расходы остаются в рамках бюджета</p></div>
+      <div class="card reveal"><svg class="viz" viewBox="0 0 200 48"><rect x="2" y="2" width="150" height="44" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><rect x="16" y="15" width="18" height="18" rx="5" fill="#1769FF" class="blink"/><rect x="44" y="15" width="18" height="18" rx="5" fill="currentColor"/><rect x="72" y="15" width="18" height="18" rx="5" fill="currentColor"/></svg><h3>Всё оформлено на вас</h3><p>Сервер, боты и доступы принадлежат компании</p></div>
+    </div>
+    <div class="cta reveal"><p>Узнайте стоимость для своей задачи<span>После аудита получите решение, сроки и ежемесячные расходы одним расчётом</span></p><a class="btn btn-blue" href="#audit">Записаться на аудит</a></div>
+  </div>
+</section>
+
+<!-- 10 · ДЕЙСТВИЕ — от аудита до запуска -->
+<section class="light" id="steps" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>От аудита <span class="hl">до запуска</span></h2></div>
+    <div class="steps" id="stepsBox">
+      <div class="track"><i></i></div>
+      <div class="step"><div class="num">01</div><h3>Аудит</h3><p>Смотрим, как процесс устроен сейчас и где уходит время</p></div>
+      <div class="step"><div class="num">02</div><h3>Расчёт</h3><p>Предлагаю решение, сроки, стоимость и ежемесячные расходы</p></div>
+      <div class="step"><div class="num">03</div><h3>Прототип</h3><p>Собираю рабочую версию на одном участке</p></div>
+      <div class="step"><div class="num">04</div><h3>Внедрение</h3><p>Подключаю к вашим системам, обучаю сотрудников</p></div>
+      <div class="step"><div class="num">05</div><h3>Сопровождение</h3><p>Слежу за работой и дорабатываю систему по ходу</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · FAQ + призыв -->
+<section class="dark" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Частые <span class="hl">вопросы</span></h2></div>
+    <div class="faq reveal">
+      <details><summary>У нас уже есть CRM и 1С. Придётся всё менять?</summary><p>Нет. Настраиваю под ваш процесс то, что у вас уже есть, и связываю системы между собой. Новое предлагаю, только если без него задачу не решить</p></details>
+      <details><summary>Сколько стоит автоматизация?</summary><p>Стоимость работ называю после аудита, до старта разработки. Ежемесячные расходы на сервер и подписки считаю заранее и показываю в расчёте</p></details>
+      <details><summary>Куда уходят наши данные?</summary><p>Сервер, боты и доступы оформлены на вашу компанию. Вы можете отозвать доступы в любой момент. ИИ подключаю только там, где он действительно нужен</p></details>
+      <details><summary>А если автоматизация не подойдёт?</summary><p>Сначала собираю рабочую версию на одном участке. Вы видите результат до того, как подключаем всё остальное</p></details>
+      <details><summary>Нужен ли ИИ, чтобы автоматизировать процессы?</summary><p>Чаще всего достаточно связать системы между собой — это проще и дешевле. ИИ нужен, когда надо понимать текст, речь или документы</p></details>
+    </div>
+    <div class="cta reveal"><p>Остались вопросы?<span>Напишите в Telegram — отвечу и подскажу, с чего начать</span></p><a class="btn btn-blue" href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Написать в Telegram</a></div>
+  </div>
+</section>
+
+<!-- 12 · форма -->
+<section class="dark final" id="audit" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Разберём ваши<br><span class="hl">бизнес-процессы?</span></h2>
+      <ol class="after">
+        <li><div>Вы оставляете заявку<span>Имя и удобный контакт — этого достаточно</span></div></li>
+        <li><div>Проводим аудит<span>Разбираем, как процесс устроен сейчас и где уходит время</span></div></li>
+        <li><div>Получаете решение с расчётом<span>Что автоматизировать, сроки, стоимость и ежемесячные расходы</span></div></li>
+      </ol>
+    </div>
+    <form class="form reveal" id="leadForm" action="/api/lead" method="post">
+      <h3>Записаться на аудит</h3>
+      <label>Имя<input type="text" name="name" required autocomplete="name"></label>
+      <label>Телефон или Telegram<input type="text" name="contact" required autocomplete="tel"></label>
+      <label class="agree"><input type="checkbox" name="agree" required>Согласен на обработку персональных данных по <a href="/privacy/">политике конфиденциальности</a></label>
+      <button class="btn btn-blue" type="submit">Отправить заявку</button>
+      <div class="or">или</div>
+      <a class="btn btn-line" href="https://t.me/ivan_web_1" target="_blank" rel="noopener"><svg><use href="#tg"/></svg>Написать в Telegram</a>
+      <p class="note" id="formNote">Telegram @ivan_web_1 · +7 977 465-94-51</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="mark"><use href="#mark"/></svg>
+    <span>Иван Панькин · Автоматизация бизнес-процессов</span>
+    <a href="/privacy/">Политика конфиденциальности</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
