@@ -338,3 +338,27 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   };
   addEventListener('scroll', update, { passive: true });
 })();
+
+// шапка: пилюля едет к пункту под курсором или к разделу, который сейчас на экране; полоса прочитанного
+(() => {
+  const nav = $('#topNav'); if (!nav) return;
+  const pill = nav.querySelector('.nav-pill'), links = [...nav.querySelectorAll('a')];
+  const secs = links.map((a) => document.querySelector(a.getAttribute('href')));
+  const prog = document.querySelector('.top-prog');
+  let cur = null, hover = null;
+  const place = (a) => {
+    if (!a) { pill.style.opacity = 0; return; }
+    pill.style.opacity = 1; pill.style.width = a.offsetWidth + 'px'; pill.style.transform = `translateX(${a.offsetLeft}px)`;
+  };
+  const update = () => {
+    const mid = innerHeight * 0.35; let found = null;
+    secs.forEach((s, k) => { if (s) { const r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) found = links[k]; } });
+    if (found !== cur) { links.forEach((a) => a.classList.toggle('cur', a === found)); cur = found; }
+    if (!hover) place(cur);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (prog) prog.style.setProperty('--sp', max > 0 ? scrollY / max : 0);
+  };
+  links.forEach((a) => { a.addEventListener('mouseenter', () => { hover = a; place(a); }); });
+  nav.addEventListener('mouseleave', () => { hover = null; place(cur); });
+  addEventListener('scroll', update, { passive: true }); addEventListener('resize', update); update();
+})();

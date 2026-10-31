@@ -912,3 +912,17 @@ body { overflow-x: clip; }
 .top:focus-within { transform: none; }
 .hero { padding-top: clamp(84px, 6.8vw, 108px); }
 .t-tog .state { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* шапка: имя рядом со знаком, «пилюля» у текущего раздела, полоса прочитанного */
+.top .topbar { position: relative; overflow: hidden; }
+.top .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--offwhite); }
+.top .brand span { display: flex; flex-direction: column; line-height: 1.1; }
+.top .brand b { font-size: 14px; font-weight: 700; }
+.top .brand small { font-size: 11px; color: var(--g-muted); }
+.top nav { position: relative; gap: 2px; padding: 4px; border-radius: 13px; background: rgba(245,244,240,.05); }
+.top nav a { position: relative; z-index: 1; padding: 8px 14px; border-radius: 10px; transition: color .25s; }
+.top nav a.cur { color: var(--offwhite); }
+.nav-pill { position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 10px; background: rgba(245,244,240,.12); opacity: 0; transition: transform .35s cubic-bezier(.4,0,.2,1), width .35s cubic-bezier(.4,0,.2,1), opacity .25s; }
+.nav-pill::after { content: ''; position: absolute; left: 50%; bottom: -1px; width: 14px; height: 2px; margin-left: -7px; border-radius: 2px; background: var(--blue); }
+.top-prog { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--blue); transform: scaleX(var(--sp, 0)); transform-origin: left; }
+@media (max-width: 900px) { .top .brand span { display: none; } }
