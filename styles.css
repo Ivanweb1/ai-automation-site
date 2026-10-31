@@ -757,3 +757,7 @@ img.ig { width: 20px; height: 20px; border-radius: 6px; display: block; }
 
 .ask-btns { display: grid; grid-template-columns: 1fr auto; }
 .ask-btns .btn-blue { grid-column: 1 / -1; }
+
+/* стопка: прилипание работает только без обрезки у предков */
+#services { overflow: visible; }
+body { overflow-x: clip; }

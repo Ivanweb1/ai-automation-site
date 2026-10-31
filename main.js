@@ -258,8 +258,8 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
       const top = parseFloat(getComputedStyle(card).top);
       const h = card.offsetHeight;
       const p = Math.min(1, Math.max(0, 1 - (next.getBoundingClientRect().top - top) / h));
-      card.style.transform = `scale(${1 - 0.06 * p})`;
-      card.style.filter = `brightness(${1 - 0.45 * p})`;
+      card.style.transform = `scale(${1 - 0.05 * p})`;
+      card.style.filter = '';
     });
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
