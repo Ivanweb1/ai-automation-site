@@ -27,45 +27,62 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
 // бегущая строка: дублируем фишки для бесшовной прокрутки
 (() => { const t = $('#marquee'); if (t && !reduce) t.innerHTML += t.innerHTML; })();
 
-// 1 · живая схема заявок
+// 1 · живая схема: 4 сценария сменяют друг друга (заявки, отчёты, документы, 1С)
 (() => {
   const inBox = $('#fdIn'), table = $('#fdTable'), node = $('#fdNode'), rail = $('#fdRail'), counter = $('#fdCount');
-  if (!inBox) return;
-  const feed = [
-    { ch: 'TG', from: 'Голосовое · Telegram', text: '«Нужно 20 коробок на пятницу»', row: 'Заказ 20 коробок', who: 'Ольга' },
-    { ch: 'WEB', from: 'Форма на сайте', text: 'Расчёт стоимости доставки', row: 'Расчёт доставки', who: 'ООО «Вектор»' },
-    { ch: 'MAX', from: 'Сообщение · MAX', text: 'Скриншот заказа из прошлого месяца', row: 'Повтор заказа', who: 'Игорь' },
-    { ch: 'AV', from: 'Авито', text: 'Ещё актуально? Заберу завтра', row: 'Самовывоз завтра', who: 'Анна' },
-    { ch: 'TEL', from: 'Звонок · запись', text: 'Пропущенный, перезвонить', row: 'Перезвонить', who: '+7 9•• •••-12-40' },
+  const tabsBox = $('#fdTabs'); if (!inBox) return;
+  const tabs = [...tabsBox.children];
+  const S = [
+    { inL: 'Входящие', outL: 'Учёт заявок', feed: [
+      ['TG', 'Голосовое · Telegram', '«Нужно 20 коробок на пятницу»', 'Заказ 20 коробок', 'Ольга', 'в работе'],
+      ['WEB', 'Форма на сайте', 'Расчёт стоимости доставки', 'Расчёт доставки', 'ООО «Вектор»', 'в работе'],
+      ['MAX', 'Сообщение · MAX', 'Скриншот заказа из прошлого месяца', 'Повтор заказа', 'Игорь', 'в работе'],
+      ['AV', 'Авито', 'Ещё актуально? Заберу завтра', 'Самовывоз завтра', 'Анна', 'в работе'],
+      ['TEL', 'Звонок · запись', 'Пропущенный, перезвонить', 'Перезвонить', 'Клиент с сайта', 'в работе'] ] },
+    { inL: 'Источники', outL: 'Отчёты в мессенджер', feed: [
+      ['ЯД', 'Яндекс Директ', 'Расход и клики за неделю', 'Сводка по рекламе', 'Пн 8:00 · Telegram', 'готов'],
+      ['1С', '1С', 'Продажи за неделю', 'Отчёт по продажам', 'Пн 8:00 · MAX', 'готов'],
+      ['МЕТ', 'Метрика', 'Звонки и заявки с сайта', 'Заявки по каналам', 'Пн 8:00 · Telegram', 'готов'],
+      ['GS', 'Google Таблицы', 'План на месяц', 'Отчёт собственнику', '1-е число · почта', 'готов'] ] },
+    { inL: 'Данные клиента', outL: 'Готовые документы', feed: [
+      ['CRM', 'Учёт клиентов', 'Сделка выиграна · ООО «Вектор»', 'Договор поставки', 'ООО «Вектор»', 'PDF'],
+      ['ИНН', 'Карточка клиента', 'Реквизиты подтянуты по ИНН', 'Счёт на оплату', 'ООО «Вектор»', 'отправлен'],
+      ['CRM', 'Учёт клиентов', 'Заказ отгружен', 'Акт выполненных работ', 'ИП Смирнов', 'готов'],
+      ['КП', 'Запрос с сайта', 'Нужно КП на 3 позиции', 'Коммерческое предложение', 'Анна', 'PDF'] ] },
+    { inL: 'Файлы и почта', outL: 'Записано в 1С', feed: [
+      ['XLS', 'Excel', 'Реализации за день', 'Реализации загружены', '1С · торговля', 'в 1С'],
+      ['@', 'Почта', 'Выписка из банка', 'Платежи разнесены', '1С · бухгалтерия', 'в 1С'],
+      ['WEB', 'Заказ с сайта', 'Новый заказ интернет-магазина', 'Заказ клиента', '1С · продажи', 'в 1С'],
+      ['МП', 'Маркетплейс', 'Отчёт о продажах', 'Отчёт комиссионера', '1С · маркетплейсы', 'в 1С'] ] },
   ];
-  let i = 0, n = 0;
-  const addMsg = (m) => {
-    const el = document.createElement('div');
-    el.className = 'msg';
-    el.innerHTML = `<i>${m.ch}</i><div>${m.text}<small>${m.from}</small></div>`;
-    inBox.prepend(el);
-    while (inBox.children.length > 4) inBox.lastElementChild.remove();
+  let sc = 0, i = 0, n = 0, ticks = 0, manual = false;
+  const msg = (f) => { const el = document.createElement('div'); el.className = 'msg'; el.innerHTML = `<i>${f[0]}</i><div>${f[2]}<small>${f[1]}</small></div>`; return el; };
+  const row = (f) => { const r = document.createElement('div'); r.className = 'fd-row'; r.innerHTML = `<div><b>${f[3]}</b><br><span>${f[4]}</span></div><em>${f[5]}</em>`; return r; };
+  const load = (k) => {
+    sc = k; i = 0; ticks = 0;
+    tabs.forEach((b, j) => b.classList.toggle('act', j === k));
+    $('#fdInL').textContent = S[k].inL; $('#fdOutL').textContent = S[k].outL;
+    inBox.innerHTML = ''; table.innerHTML = '';
+    S[k].feed.slice(0, 3).forEach((f) => inBox.prepend(msg(f)));
+    S[k].feed.slice(-2).forEach((f) => table.prepend(row(f)));
   };
-  const addRow = (m) => {
-    const r = document.createElement('div');
-    r.className = 'fd-row';
-    r.innerHTML = `<div><b>${m.row}</b><br><span>${m.who}</span></div><em>в работе</em>`;
-    table.prepend(r);
-    while (table.children.length > 4) table.lastElementChild.remove();
-  };
-  feed.slice(0, 3).forEach(addMsg);
-  if (reduce) { feed.slice(0, 4).forEach(addRow); counter.textContent = 4; return; }
+  tabs.forEach((b, k) => b.addEventListener('click', () => { manual = true; tabsBox.classList.add('paused'); load(k); }));
+  load(0);
+  if (reduce) { S[0].feed.slice(0, 4).forEach((f) => table.prepend(row(f))); counter.textContent = 4; return; }
   const tick = () => {
+    const feed = S[sc].feed;
+    if (!manual && ticks >= 3) { load((sc + 1) % S.length); return; }
     const oldest = inBox.lastElementChild;
     if (oldest) oldest.classList.add('out');
     rail.classList.remove('go'); void rail.offsetWidth; rail.classList.add('go');
     setTimeout(() => {
       node.classList.remove('ping'); void node.offsetWidth; node.classList.add('ping');
-      addRow(feed[(i + 2) % feed.length]);
-      counter.textContent = ++n;
       if (oldest) oldest.remove();
-      addMsg(feed[(i + 3) % feed.length]);
-      i++;
+      table.prepend(row(feed[i % feed.length]));
+      while (table.children.length > 4) table.lastElementChild.remove();
+      inBox.prepend(msg(feed[(i + 3) % feed.length]));
+      while (inBox.children.length > 3) inBox.lastElementChild.remove();
+      counter.textContent = ++n; i++; ticks++;
     }, 700);
   };
   setTimeout(() => { tick(); setInterval(tick, 2400); }, 900);
@@ -88,13 +105,12 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
 (() => {
   const list = $('#pains'); if (!list) return;
   const items = [...list.querySelectorAll('.pain')];
-  const svg = $('#sceneSvg'), title = $('#sceneTitle'), num = $('#sceneNum');
+  const stage = $('#stage'), title = $('#sceneTitle'), num = $('#sceneNum');
   let cur = 0, timer = null;
   const show = (k) => {
     cur = k;
     items.forEach((el, j) => el.classList.toggle('act', j === k));
-    svg.replaceChildren(...[...document.getElementById('sc' + k).childNodes].map((c) => c.cloneNode(true)));
-    svg.classList.remove('swap'); void svg.offsetWidth; svg.classList.add('swap');
+    stage.innerHTML = document.querySelector(`#scenes [data-k="${k}"]`).innerHTML;
     title.textContent = items[k].querySelector('h3').textContent;
     num.textContent = `0${k + 1} / 06`;
   };
@@ -113,11 +129,16 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
     day.classList.toggle('on', on); btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', on);
     $('#dayLbl').textContent = on ? 'Автоматически' : 'Ручной режим';
     $('#dayNote').textContent = on
-      ? 'Рутина уходит в систему, освободившееся время — на работу с клиентами'
-      : 'Нажмите на тумблер, чтобы увидеть тот же день после автоматизации';
+      ? 'После автоматизации: рутина уходит в систему, время — на работу с клиентами'
+      : 'До автоматизации: половина дня уходит на ручной перенос данных';
   };
-  btn.addEventListener('click', () => set(!day.classList.contains('on')));
-  onView(day, () => setTimeout(() => set(true), reduce ? 0 : 1400), 0.6);
+  let auto = null;
+  btn.addEventListener('click', () => { clearInterval(auto); set(!day.classList.contains('on')); });
+  onView(day, () => {
+    if (reduce) { set(true); return; }
+    setTimeout(() => set(true), 1200);
+    auto = setInterval(() => set(!day.classList.contains('on')), 4000);
+  }, 0.5);
 })();
 
 // 6 · чат → заявка в карточке услуги
