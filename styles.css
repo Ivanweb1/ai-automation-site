@@ -741,7 +741,7 @@ footer .wrap { position: relative; }
 /* аватарки: лицо крупно внутри рамки, отступ до текста */
 .ava { width: 64px; height: 64px; border-radius: 16px; overflow: hidden; flex: none; display: block; background: var(--g-surface); }
 .ava.sm { width: 56px; height: 56px; border-radius: 15px; }
-.ava img { width: 100% !important; height: 100% !important; border-radius: 0 !important; object-fit: cover; transform: scale(2.7); transform-origin: 48% 29%; }
+.ava img { width: 100% !important; height: 100% !important; border-radius: 0 !important; object-fit: cover; transform: none; object-position: 50% 50%; }
 .ask-top { gap: 18px; }
 .final-contacts { column-gap: 18px; }
 
