@@ -904,3 +904,4 @@ body { overflow-x: clip; }
 .fd-ar.r { right: -2px; }
 .fd { grid-template-columns: 1fr clamp(76px, 7vw, 104px) 1fr; }
 .hero { padding-top: clamp(92px, 7.5vw, 120px); }
+#pains h2 { font-size: clamp(28px, 3.1vw, 56px); padding-right: 12px; }
