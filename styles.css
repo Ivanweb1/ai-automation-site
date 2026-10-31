@@ -761,3 +761,16 @@ img.ig { width: 20px; height: 20px; border-radius: 6px; display: block; }
 /* стопка: прилипание работает только без обрезки у предков */
 #services { overflow: visible; }
 body { overflow-x: clip; }
+
+/* без микроскачков: фиксированные высоты у меняющихся блоков */
+.pain p { height: 0; max-height: none; }
+.pain.act p { height: 2.9em; max-height: none; }
+@media (max-width: 760px) { .pain.act p { height: 4.35em; } }
+.pain p { transition: height .45s ease, opacity .35s ease; }
+.t-demo { height: clamp(430px, 36vw, 580px); min-height: 0; }
+.t-demo .fd { overflow: hidden; }
+.fd-in, .fd-table { max-height: 100%; overflow: hidden; }
+@media (max-width: 760px) { .t-demo { height: 720px; } }
+
+@media (max-width: 1100px) { .scene { height: 680px; } .stage { overflow: hidden; } }
+@media (max-width: 760px) { .scene { height: 900px; } }
