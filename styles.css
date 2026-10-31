@@ -713,3 +713,10 @@ footer .wrap { position: relative; }
 .ask-top img, .final-contacts img { object-position: 50% 38%; transform: scale(1.35); }
 .ask-top, .final-contacts { overflow: visible; }
 .ask-top img, .final-contacts img { clip-path: inset(0 round 15px); }
+
+/* знак не сжимается во flex-контейнерах */
+.top .topbar > a:first-child, .top .mark, .f-bottom .mark { flex: none; }
+.top .mark, .f-bottom .mark { overflow: visible; }
+/* шкала дня не прыгает: фиксированная высота подписи и заголовка */
+.day .note { min-height: 2.9em; }
+.day-top .lbl b { min-width: 9.5em; }
