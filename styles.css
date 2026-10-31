@@ -57,7 +57,7 @@ h3 { font-size: clamp(19px, 1.5vw, 26px); line-height: 1.15; letter-spacing: -0.
 
 /* шапка — плавающая плашка */
 .top { position: fixed; top: 14px; left: 0; right: 0; z-index: 30; pointer-events: none; }
-.top .bar { pointer-events: auto; margin: 0 auto; width: min(100% - 2 * var(--pad), 1100px); display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 8px 8px 8px 18px; border-radius: 18px; background: rgba(17,19,21,.88); backdrop-filter: blur(12px); color: var(--offwhite); }
+.top .topbar { pointer-events: auto; margin: 0 auto; width: min(100% - 2 * var(--pad), 1100px); display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 8px 8px 8px 18px; border-radius: 18px; background: rgba(17,19,21,.88); backdrop-filter: blur(12px); color: var(--offwhite); }
 .top .mark { width: 32px; height: 32px; display: block; }
 .top nav { display: flex; gap: clamp(16px, 2vw, 32px); font-size: 15px; font-weight: 500; }
 .top nav a { text-decoration: none; color: var(--g-muted); }
