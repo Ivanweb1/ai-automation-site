@@ -59,13 +59,13 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
       ['WEB', 'Заказ с сайта', 'Новый заказ интернет-магазина', 'Заказ клиента', '1С · продажи', 'в 1С'],
       ['МП', 'Маркетплейс', 'Отчёт о продажах', 'Отчёт комиссионера', '1С · маркетплейсы', 'в 1С'] ] },
   ];
-  let sc = 0, i = 0, n = 0, ticks = 0, manual = false;
-  const LOGO = { TG: 'telegram', MAX: 'max', AV: 'avito', 'ЯД': 'yandex-direct', 'МЕТ': 'yandex-metrika', '1С': '1c', GS: 'google-sheets', CRM: 'amocrm', 'МП': 'wildberries', WEB: 'tilda', '@': 'yandex-mail' };
+  let sc = 0, i = 0, n = 0, ticks = 0, manual = false, gen = 0;
+  const LOGO = { TG: 'telegram', MAX: 'max', AV: 'avito', 'ЯД': 'yandex-direct', 'МЕТ': 'yandex-metrika', '1С': '1c', GS: 'google-sheets', CRM: 'amocrm', 'МП': 'wildberries', '@': 'yandex-mail' };
   const ico = (c) => LOGO[c] ? `<i class="lgo"><img src="img/logos/${LOGO[c]}.svg" alt=""></i>` : `<i>${c}</i>`;
   const msg = (f) => { const el = document.createElement('div'); el.className = 'msg'; el.innerHTML = `${ico(f[0])}<div>${f[2]}<small>${f[1]}</small></div>`; return el; };
   const row = (f) => { const r = document.createElement('div'); r.className = 'fd-row'; r.innerHTML = `<div><b>${f[3]}</b><br><span>${f[4]}</span></div><em>${f[5]}</em>`; return r; };
   const load = (k) => {
-    sc = k; i = 0; ticks = 0;
+    sc = k; i = 0; ticks = 0; gen++;
     tabs.forEach((b, j) => b.classList.toggle('act', j === k));
     $('#fdInL').textContent = S[k].inL; $('#fdOutL').textContent = S[k].outL;
     inBox.innerHTML = ''; table.innerHTML = '';
@@ -76,12 +76,13 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   load(0);
   if (reduce) { S[0].feed.slice(0, 4).forEach((f) => table.prepend(row(f))); counter.textContent = 4; return; }
   const tick = () => {
-    const feed = S[sc].feed;
+    const feed = S[sc].feed, g = gen;
     if (!manual && ticks >= 3) { load((sc + 1) % S.length); return; }
     const oldest = inBox.lastElementChild;
     if (oldest) oldest.classList.add('out');
     rail.classList.remove('go'); void rail.offsetWidth; rail.classList.add('go');
     setTimeout(() => {
+      if (g !== gen) return; // вкладку уже переключили — строку из старого сценария не дорисовываем
       node.classList.remove('ping'); void node.offsetWidth; node.classList.add('ping');
       if (oldest) oldest.remove();
       table.prepend(row(feed[i % feed.length]));

@@ -881,3 +881,16 @@ body { overflow-x: clip; }
 /* обо мне: фото раскрывается */
 .about .photo { clip-path: inset(calc((1 - var(--sp, 1)) * 12%) calc((1 - var(--sp, 1)) * 12%) round var(--r)); }
 .about .photo img { transform: scale(calc(1.12 - var(--sp, 1) * .12)); transform-origin: 50% 30%; }
+
+/* первый экран: плитки поднимаем, чтобы схема была видна без скролла */
+.hero { padding-top: clamp(96px, 8vw, 132px); padding-bottom: clamp(40px, 5vw, 80px); }
+.hero h1 { font-size: clamp(34px, 4.9vw, 90px); }
+.hero .head .lead { margin-top: clamp(14px, 1.4vw, 22px); }
+.hero .btns { margin-top: clamp(18px, 1.8vw, 28px); }
+.bento { margin-top: clamp(28px, 2.8vw, 44px); }
+
+/* карточка кейса: одна строка вместо полосок */
+.cs-line { font-size: 14px; opacity: .9; padding: 10px 14px; border-radius: 12px; background: rgba(17,19,21,.16); align-self: flex-start; }
+.cs-line b { font-weight: 700; opacity: 1; margin-right: 4px; }
+.hero h1 { font-size: clamp(34px, 4.6vw, 84px); }
+@media (min-width: 761px) { .t-demo { height: clamp(400px, 31vw, 520px); } }
