@@ -903,3 +903,4 @@ body { overflow-x: clip; }
 .fd-ar.l { left: calc(50% - 23px - 14px); }
 .fd-ar.r { right: -2px; }
 .fd { grid-template-columns: 1fr clamp(76px, 7vw, 104px) 1fr; }
+.hero { padding-top: clamp(92px, 7.5vw, 120px); }
