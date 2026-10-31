@@ -894,3 +894,12 @@ body { overflow-x: clip; }
 .cs-line b { font-weight: 700; opacity: 1; margin-right: 4px; }
 .hero h1 { font-size: clamp(34px, 4.6vw, 84px); }
 @media (min-width: 761px) { .t-demo { height: clamp(400px, 31vw, 520px); } }
+
+/* схема на первом экране: линия заметнее, стрелки «вход → система → выход», молния в узле */
+.fd-mid .rail { background: repeating-linear-gradient(90deg, var(--g-muted) 0 4px, transparent 4px 9px); opacity: .55; }
+.fd-mid .node { display: flex; align-items: center; justify-content: center; color: var(--offwhite); box-shadow: 0 0 0 6px rgba(23,105,255,.18); }
+.fd-mid .node svg { width: 22px; height: 22px; }
+.fd-ar { position: absolute; top: 50%; width: 8px; height: 8px; border-top: 2px solid var(--offwhite); border-right: 2px solid var(--offwhite); transform: translateY(-50%) rotate(45deg); opacity: .8; z-index: 1; }
+.fd-ar.l { left: calc(50% - 23px - 14px); }
+.fd-ar.r { right: -2px; }
+.fd { grid-template-columns: 1fr clamp(76px, 7vw, 104px) 1fr; }
