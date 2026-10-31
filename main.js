@@ -194,12 +194,16 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   ];
   const now = $('#baNow'), auto = $('#baAuto');
   const show = (k) => {
-    tabs.forEach((t, j) => t.classList.toggle('act', j === k));
+    tabs.forEach((t, j) => { t.classList.remove('act'); if (j === k) { void t.offsetWidth; t.classList.add('act'); } });
     now.querySelector('p').textContent = data[k][0]; now.querySelector('.ba-viz').innerHTML = data[k][1];
     auto.querySelector('p').textContent = data[k][2]; auto.querySelector('.ba-viz').innerHTML = data[k][3];
   };
-  tabs.forEach((t, k) => t.addEventListener('click', () => show(k)));
-  show(0);
+  let cur = 0, timer = null;
+  const box = $('#tabs');
+  const play = (k) => { cur = k; show(k); };
+  tabs.forEach((t, k) => t.addEventListener('click', () => { clearInterval(timer); box.classList.add('paused'); play(k); }));
+  play(0);
+  if (!reduce) timer = setInterval(() => play((cur + 1) % tabs.length), 6000);
 })();
 
 // 8 · кейс: 40 таблиц заполняются
