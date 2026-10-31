@@ -710,9 +710,6 @@ footer .wrap { position: relative; }
 .msg i.lgo { background: var(--offwhite); padding: 5px; }
 .msg i.lgo img { width: 100%; height: 100%; object-fit: contain; border-radius: 5px; }
 
-.ask-top img, .final-contacts img { object-position: 50% 38%; transform: scale(1.35); }
-.ask-top, .final-contacts { overflow: visible; }
-.ask-top img, .final-contacts img { clip-path: inset(0 round 15px); }
 
 /* знак не сжимается во flex-контейнерах */
 .top .topbar > a:first-child, .top .mark, .f-bottom .mark { flex: none; }
@@ -740,3 +737,23 @@ footer .wrap { position: relative; }
 
 .hero h1 { font-size: clamp(30px, 5vw, 96px); }
 @media (min-width: 761px) { .hero h1 .l2 { white-space: nowrap; } }
+
+/* аватарки: лицо крупно внутри рамки, отступ до текста */
+.ava { width: 64px; height: 64px; border-radius: 16px; overflow: hidden; flex: none; display: block; background: var(--g-surface); }
+.ava.sm { width: 56px; height: 56px; border-radius: 15px; }
+.ava img { width: 100% !important; height: 100% !important; border-radius: 0 !important; object-fit: cover; transform: scale(2.7); transform-origin: 48% 29%; }
+.ask-top { gap: 18px; }
+.final-contacts { column-gap: 18px; }
+
+/* Instagram */
+img.ig { width: 20px; height: 20px; border-radius: 6px; display: block; }
+.btn-ig { padding-left: 0; padding-right: 0; width: clamp(50px, 3.6vw, 58px); }
+.ig-link { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--graphite); }
+.ig-link:hover { color: var(--blue); }
+.reels-head { flex-wrap: wrap; }
+.final-contacts { grid-template-columns: 56px auto 1fr auto auto; }
+.final-contacts a.fc-ig { padding: 12px; display: flex; }
+@media (max-width: 1100px) { .final-contacts { grid-template-columns: 56px 1fr; } }
+
+.ask-btns { display: grid; grid-template-columns: 1fr auto; }
+.ask-btns .btn-blue { grid-column: 1 / -1; }
