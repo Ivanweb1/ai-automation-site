@@ -855,3 +855,29 @@ body { overflow-x: clip; }
 .ex-head { justify-content: flex-start; padding: 6px 6px 14px; }
 .ex-head > .desc { order: 2; }
 .ex-box .tab { font-size: clamp(15px, 1.05vw, 17px); padding: 13px 20px; }
+
+/* выделение в заголовках проявляется слева направо */
+.reveal .hl, .reveal.hl { clip-path: inset(0 100% 0 0 round .16em); transition: clip-path .9s cubic-bezier(.6,0,.2,1) .25s; }
+.reveal.in .hl, .reveal.hl.in { clip-path: inset(0 0 0 0 round .16em); }
+@media (prefers-reduced-motion: reduce) { .reveal .hl { clip-path: none; } }
+
+/* хаб: шаги загораются по скроллу */
+.hub-points.sp li { opacity: .35; transform: translateX(-10px); transition: opacity .5s ease, transform .5s ease, background .5s ease, color .5s ease; }
+.hub-points.sp li.lit { opacity: 1; transform: none; }
+.hub-points.sp li.mid:not(.lit) { background: var(--o-surface); color: var(--graphite); }
+.hub-points.sp li.mid:not(.lit) i { background: var(--graphite); }
+.hub-points.sp::after { content: ''; position: absolute; left: 35px; top: 30px; width: 2px; height: calc((100% - 60px) * var(--p, 0)); background: var(--blue); }
+
+/* кейс: блоки загораются сверху вниз */
+.pipe.sp > * { opacity: .25; transform: translateY(10px) scale(.98); transition: opacity .5s ease, transform .5s ease; }
+.pipe.sp > .lit { opacity: 1; transform: none; }
+.pipe.sp .down.lit svg { color: var(--blue); }
+
+/* расходы: стопка → ряд */
+#price .cost { transform-origin: 0 100%; will-change: transform; position: relative; }
+#price .cost:nth-child(1) { z-index: 4; } #price .cost:nth-child(2) { z-index: 3; } #price .cost:nth-child(3) { z-index: 2; } #price .cost:nth-child(4) { z-index: 1; }
+#price .cost { background: var(--o-surface); border-top: 0; border-radius: var(--r); padding: clamp(18px, 1.8vw, 26px); box-shadow: 0 10px 30px rgba(17,19,21,.06); }
+
+/* обо мне: фото раскрывается */
+.about .photo { clip-path: inset(calc((1 - var(--sp, 1)) * 12%) calc((1 - var(--sp, 1)) * 12%) round var(--r)); }
+.about .photo img { transform: scale(calc(1.12 - var(--sp, 1) * .12)); transform-origin: 50% 30%; }

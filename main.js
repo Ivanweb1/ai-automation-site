@@ -284,3 +284,42 @@ document.querySelectorAll('[data-count]').forEach((el) => onView(el, () => {
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener('resize', update); update();
 })();
+
+// анимации по скроллу: прогресс блока 0→1, пока он проходит через экран
+(() => {
+  if (reduce) { document.documentElement.classList.add('no-sp'); return; }
+  const clamp = (v) => Math.min(1, Math.max(0, v));
+  const prog = (el, from = 0.85, len = 0.55) => clamp((innerHeight * from - el.getBoundingClientRect().top) / (innerHeight * len));
+  const jobs = [];
+
+  // хаб: шаги «Входы → Система → Результат» загораются по очереди
+  const hub = document.querySelector('.hub-points');
+  if (hub) { const li = [...hub.children]; hub.classList.add('sp');
+    jobs.push(() => { const p = prog(hub, 0.9, 0.5); li.forEach((el, k) => el.classList.toggle('lit', p > k / li.length + 0.05)); hub.style.setProperty('--p', p); }); }
+
+  // кейс: данные идут сверху вниз — Директ → скрипт → таблицы
+  const pipe = $('#pipe');
+  if (pipe) { const parts = [...pipe.children]; pipe.classList.add('sp');
+    jobs.push(() => { const p = prog(pipe, 0.9, 0.6); parts.forEach((el, k) => el.classList.toggle('lit', p > k / parts.length)); }); }
+
+  // расходы: карточки раскладываются из стопки
+  const costs = document.querySelector('#price .costs');
+  if (costs) { const cs = [...costs.querySelectorAll('.cost')];
+    jobs.push(() => {
+      if (innerWidth < 1100) { cs.forEach((c) => { c.style.transform = ''; }); return; }
+      const p = prog(costs, 0.95, 0.5), e = 1 - Math.pow(1 - p, 3);
+      cs.forEach((c, k) => {
+        const dx = -k * (c.offsetWidth + 16) * (1 - e);
+        c.style.transform = `translateX(${dx}px) rotate(${(1 - e) * (k * 2.5)}deg)`;
+      });
+    }); }
+
+  // обо мне: фото раскрывается из скруглённого окна
+  const photo = document.querySelector('.about .photo');
+  if (photo) jobs.push(() => { const p = prog(photo, 1, 0.6); photo.style.setProperty('--sp', p); });
+
+  let ticking = false;
+  const run = () => { ticking = false; jobs.forEach((f) => f()); };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
+  addEventListener('resize', run); run();
+})();
